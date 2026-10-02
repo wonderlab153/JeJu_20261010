@@ -79,6 +79,12 @@ a{color:var(--sea)}
 .fact.purpose{grid-column:1/-1;background:linear-gradient(135deg,#FFF6D6,#FFFFFF 60%)}
 .fact.purpose .v{font-family:var(--display);font-size:1.45rem}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
+.tide{display:flex;flex-direction:column;gap:8px}
+.tide-row{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center;background:#F6FAFF;border-radius:14px;padding:8px 10px}
+.tide-day{font-family:var(--display);color:#fff;border-radius:10px;padding:2px 10px;white-space:nowrap;box-shadow:inset 0 -3px 0 rgba(0,0,0,.18)}
+.tide-v{display:flex;flex-wrap:wrap;gap:6px 14px;font-variant-numeric:tabular-nums;font-weight:700}
+.tide-v .hi{color:#0F6FB5}.tide-v .lo{color:#B4540A}
+.notice{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;font-size:.95rem;background:#FFF3D1;color:#7A4A00;border-radius:999px;padding:4px 14px}
 .chip{display:inline-flex;align-items:center;gap:6px;font-size:.9rem;background:#EAF4FF;border-radius:999px;padding:3px 10px;font-variant-numeric:tabular-nums}
 .promise{padding:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;background:linear-gradient(150deg,#FFE9E7,#FFFFFF 60%)}
 .promise h2{grid-column:1/-1}
@@ -176,8 +182,8 @@ a{color:var(--sea)}
 .box{padding:18px;display:flex;flex-direction:column;gap:8px;min-width:0}
 .box ul{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:4px}
 .uniform{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;background:linear-gradient(150deg,#FFFBD6,#FFFFFF 60%)}
-.uniform svg{width:120px;height:auto}
-@media (max-width:480px){.uniform{grid-template-columns:1fr}.uniform svg{justify-self:center}}
+.uniform-img{display:block;width:clamp(160px,22vw,240px);height:auto;border-radius:20px;background:#FFFFFF;box-shadow:0 6px 0 #E8DDB0,0 10px 18px rgba(27,47,91,.18)}
+@media (max-width:560px){.uniform{grid-template-columns:1fr}.uniform-img{justify-self:center;width:min(240px,70vw)}}
 .sos{background:linear-gradient(160deg,#FFE3E3,#FFFFFF 70%)}
 .sos .big{font-family:var(--display);font-size:2.2rem;color:var(--risk);line-height:1}
 .hosp div{background:#E9F8F0;border-radius:12px;padding:8px 10px;font-size:.92rem;margin-top:6px}
@@ -186,6 +192,7 @@ a{color:var(--sea)}
 .checks input{width:20px;height:20px;accent-color:var(--day2)}
 footer.src{max-width:1180px;margin:28px auto 0;font-size:.82rem;color:var(--ink-soft);display:flex;flex-direction:column;gap:6px}
 footer.src p{overflow-wrap:anywhere}
+.src-list{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:2px}
 
 /* 기록 입력 창 */
 .overlay{position:fixed;inset:0;z-index:3000;background:rgba(15,30,60,.55);display:flex;align-items:flex-end;justify-content:center;padding:12px;
@@ -313,20 +320,26 @@ footer.src p{overflow-wrap:anywhere}
   <section class="facts" aria-label="탐사 개요">
     <div class="fact clay purpose"><span class="k">탐사 목적</span><p class="v">제주 지질탐사를 통해 하나님의 섭리 발견하기</p></div>
     <div class="fact clay"><span class="k">일정</span>
-      <p><b>2026.10.10(안) 13:00</b> 신서귀포 교회 출발<br><b>10.11(일) 17:30</b> 용머리해안 주차장 현장 해산</p></div>
+      <p><b>2026.10.10(안) 13:00</b> 신서귀포 교회 출발<br><b>2026.10.11(일) 17:30</b> 용머리해안 주차장 현장 해산</p></div>
     <div class="fact clay"><span class="k">물때 (서귀포 기준)</span>
-      <div class="chips"><span class="chip">10일 간조 15:36</span><span class="chip">11일 만조 10:03</span><span class="chip">11일 간조 16:13</span></div>
+      <div class="tide" role="table" aria-label="날짜별 물때">
+        <div class="tide-row" role="row"><span class="tide-day" role="rowheader" style="background:var(--day1)">10일(안)</span>
+          <span class="tide-v" role="cell"><span class="lo">▼ 간조 15:36</span></span></div>
+        <div class="tide-row" role="row"><span class="tide-day" role="rowheader" style="background:var(--day2)">11일(일)</span>
+          <span class="tide-v" role="cell"><span class="hi">▲ 만조 10:03</span><span class="lo">▼ 간조 16:13</span></span></div>
+      </div>
       <p class="mute" style="font-size:.9rem">물이 차는 오전엔 숲·오름, 물이 빠지는 오후엔 바닷가로 가요.</p></div>
     <div class="fact clay"><span class="k">우리의 탐사 방법</span>
-      <p>① 무엇이 보이나? ② 무엇이 이상하고 궁금하지? ③ 왜 이렇게 되었을까?</p>
+      <p>① 무엇이 보이나?<br>② 무엇이 이상하고 궁금하지?<br>③ 왜 이렇게 되었을까?</p>
       <p class="mute" style="font-size:.9rem">관찰 미션에서 지점 이름을 누르면 기록장이 열려요.</p></div>
   </section>
 
-  <section class="promise clay" aria-label="탐사대 3대 약속">
-    <h2>🤝 탐사대 3대 약속</h2>
+  <section class="promise clay" aria-label="탐사대 약속">
+    <h2>🤝 탐사대 약속</h2>
     <div class="pr"><span class="n">1</span><div><b>선생님 설명에 귀 기울이기</b>설명할 때는 말을 멈추고 눈을 맞춰요.</div></div>
     <div class="pr"><span class="n">2</span><div><b>최대한 선생님 가까이 있기</b>선생님이 보이고 목소리가 들리는 곳에 있어요.</div></div>
     <div class="pr"><span class="n">3</span><div><b>선생님보다 앞서가지 않기</b>길이 열려 보여도 선생님 뒤에서 걸어요.</div></div>
+    <div class="pr"><span class="n">4</span><div><b>휴대전화는 부모님께</b>휴대전화는 부모님이 보관하고, 기록할 때만 받아 사용한 후 부모님께 맡겨둡니다.</div></div>
   </section>
 
   <nav class="go" aria-label="바로가기">
@@ -342,9 +355,9 @@ footer.src p{overflow-wrap:anywhere}
   <section class="map-card clay" aria-label="탐사 지도">
     <h2>🗺️ 탐사 지도</h2>
     <div class="map-tools" role="group" aria-label="지도 보기 설정">
-      <button class="btn small" id="t-d1" type="button" aria-pressed="true">1일차 경로</button>
-      <button class="btn small" id="t-d2" type="button" aria-pressed="true">2일차 경로</button>
-      <button class="btn small" id="t-pb" type="button" aria-pressed="true">Plan B</button>
+      <button class="btn small" id="t-d1" type="button" aria-pressed="false">1일차 경로</button>
+      <button class="btn small" id="t-d2" type="button" aria-pressed="false">2일차 경로</button>
+      <button class="btn small" id="t-pb" type="button" aria-pressed="false">Plan B</button>
       <button class="btn small ghost" id="z-all" type="button">전체 보기</button>
       <button class="btn small ghost" id="z-d1" type="button">1일차 확대</button>
       <button class="btn small ghost" id="z-sw" type="button">2일차(서남부) 확대</button>
@@ -358,10 +371,9 @@ footer.src p{overflow-wrap:anywhere}
           <span><i class="sw" style="background:var(--day1)"></i>1일차</span>
           <span><i class="sw" style="background:var(--day2)"></i>2일차</span>
           <span><i class="sw dash"></i>Plan B</span>
-          <span>➤ 진행 방향</span>
+          <span>➤ 진행 방향(경로 버튼을 누르면 표시)</span>
           <span><i class="dot ring"></i>상황에 따라 생략</span>
           <span><i class="dot" style="background:var(--ink)"></i>M 출발·해산</span>
-          <span><i class="dot" style="background:var(--safe)"></i>S 응급의료</span>
         </div>
       </div>
       <div class="route-list" id="routeList" aria-label="경로 순서 목록"></div>
@@ -375,6 +387,7 @@ footer.src p{overflow-wrap:anywhere}
 <main class="wrap page" id="p-time" data-page="time" hidden>
   <section aria-label="일정" style="display:flex;flex-direction:column;gap:14px">
     <h2>🧭 시간표</h2>
+    <p class="notice">⏱️ 상황에 따라 시간 변동 가능</p>
     <div class="days">
       <article class="day clay"><div class="day-head"><span class="daybadge" style="background:var(--day1)">1일차</span><h3>10월 10일(안)</h3></div><ol class="tl" id="tl1"></ol></article>
       <article class="day clay"><div class="day-head"><span class="daybadge" style="background:var(--day2)">2일차</span><h3>10월 11일(일)</h3></div><ol class="tl" id="tl2"></ol></article>
@@ -417,13 +430,7 @@ footer.src p{overflow-wrap:anywhere}
 <main class="wrap page" id="p-safety" data-page="safety" hidden>
   <h2>🧢 복장과 안전</h2>
   <div class="box clay uniform">
-    <svg viewBox="0 0 120 120" role="img" aria-label="제복과 삼각건 그림">
-      <defs><linearGradient id="gU" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3B4F7E"/><stop offset="1" stop-color="#1B2F5B"/></linearGradient></defs>
-      <path d="M30 34 L50 26 L60 34 L70 26 L90 34 L104 64 L90 70 L86 56 L86 112 L34 112 L34 56 L30 70 L16 64 Z" fill="url(#gU)"/>
-      <path d="M46 28 L60 64 L74 28 L66 26 L60 36 L54 26 Z" fill="#FFC83D"/>
-      <circle cx="60" cy="58" r="5" fill="#C9A227"/>
-      <path d="M40 66 l10 0 0 12 -10 0z" fill="#D7261E"/><path d="M41 67 l8 0 -4 9z" fill="#FFF200"/>
-    </svg>
+    <img class="uniform-img" src="uniform.jpg" width="480" height="720" loading="lazy" alt="패스파인더 제복을 입은 남녀 대원 그림: 카키색 반팔 셔츠와 왼팔 패스파인더 패치, 노란 삼각건, 검은 벨트, 검은 바지 또는 치마, 검은 운동화">
     <div style="display:flex;flex-direction:column;gap:6px;min-width:0">
       <h3>복장 안내</h3>
       <ul>
@@ -474,6 +481,7 @@ footer.src p{overflow-wrap:anywhere}
       <label><input type="checkbox" id="c5">우비(우산보다 안전)</label>
       <label><input type="checkbox" id="c6">관찰 수첩·연필</label>
       <label><input type="checkbox" id="c7">루페</label>
+      <label><input type="checkbox" id="c9">쌍안경(돌고래 관찰)</label>
       <label><input type="checkbox" id="c8">작은 봉투·장갑(쓰레기용)</label>
     </div>
     <p style="font-size:.92rem"><b>통신이 끊길 때를 대비해요</b> · 출발 전에 지도와 시간표를 화면 캡처해 두고, 카카오맵·네이버지도 앱에 지점을 즐겨찾기로 저장해요.</p>
@@ -513,8 +521,15 @@ footer.src p{overflow-wrap:anywhere}
 </main>
 
 <footer class="src">
-  <p>장소 정보 확인일 2026-10-01~02 · 운영 시간과 통제는 당일 바뀔 수 있어요. 좌표는 지도 장소 검색으로 확인한 값이에요.</p>
-  <p>출처: 바다타임 서귀포 물때(국립해양조사원 자료) https://m.badatime.com/72-2026-10-01.html · VisitJeju 용머리해안 https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500471 · 만장굴 재개방 서울신문 https://www.seoul.co.kr/news/peoples/2026/05/28/20260528023007 · 제주도세계지질공원 https://www.jeju.go.kr/geopark/intro/fossil/intro.htm · 지도 © OpenStreetMap contributors</p>
+  <p>장소 정보 확인일: 2026-10-01~02<br>운영 시간과 통제는 당일 바뀔 수 있어요.<br>좌표는 지도 장소 검색으로 확인한 값이에요.</p>
+  <p><b>출처</b></p>
+  <ul class="src-list">
+    <li>물때: 바다타임 서귀포(국립해양조사원 자료) — <a href="https://m.badatime.com/72-2026-10-01.html" target="_blank" rel="noopener">m.badatime.com</a></li>
+    <li>용머리해안 운영: VisitJeju — <a href="https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500471" target="_blank" rel="noopener">visitjeju.net</a></li>
+    <li>만장굴 재개방: 서울신문 — <a href="https://www.seoul.co.kr/news/peoples/2026/05/28/20260528023007" target="_blank" rel="noopener">seoul.co.kr</a></li>
+    <li>서귀포층 패류화석층: 제주도세계지질공원 — <a href="https://www.jeju.go.kr/geopark/intro/fossil/intro.htm" target="_blank" rel="noopener">jeju.go.kr</a></li>
+    <li>지도: © OpenStreetMap contributors</li>
+  </ul>
 </footer>
 
 <!-- 기록 입력 창 -->
@@ -523,7 +538,7 @@ footer.src p{overflow-wrap:anywhere}
     <div class="sheet-head"><span class="pin" id="ovPin">G1</span><div><h3 id="ovTitle">기록</h3><small class="mute" id="ovWhen"></small></div>
       <button class="btn small ghost x" type="button" id="ovClose" aria-label="닫기">✕</button></div>
     <form id="recForm" style="display:flex;flex-direction:column;gap:12px">
-      <div class="field"><label for="f-name">이름</label><input type="text" id="f-name" required maxlength="20" autocomplete="name" placeholder="예: 김하늘"></div>
+      <div class="field"><label for="f-name">이름</label><input type="text" id="f-name" required maxlength="20" autocomplete="name"></div>
       <div class="field"><label for="f-see">👀 무엇이 보였나요?</label><span class="hint" id="h-see"></span><textarea id="f-see" maxlength="1000"></textarea></div>
       <div class="field"><label>❓ 궁금한 질문 (먼저 많이, 판단하지 않고)</label><span class="hint" id="h-won"></span>
         <div class="qs"><input type="text" id="f-q1" maxlength="200" placeholder="질문 1"><input type="text" id="f-q2" maxlength="200" placeholder="질문 2"><input type="text" id="f-q3" maxlength="200" placeholder="질문 3"></div></div>
@@ -821,7 +836,8 @@ function initMap(){
     ${id==='M3'?'<p>🟣 비·강풍 시 Plan B2(용머리 전망 스케치)도 이곳에서 해요.</p>':''}
     <div class="links">${(p.type==='G'||p.type==='B')?`<button type="button" data-rec="${id}">✏️ 기록하기</button>`:''}${id==='M3'?'<button type="button" data-rec="B2">✏️ B2 기록</button>':''}<a href="${kakao(p)}" target="_blank" rel="noopener">카카오맵</a><a href="${naver(p)}" target="_blank" rel="noopener">네이버지도</a></div>
     <p style="color:#7A8AA6">${fmt(p.lat)}, ${fmt(p.lng)}</p></div>`;
-  const groups={d1:L.layerGroup(),d2:L.layerGroup(),pb:L.layerGroup(),base:L.layerGroup()};
+  const groups={d1:L.layerGroup(),d2:L.layerGroup(),pb:L.layerGroup()}; // 경로선·화살표(버튼으로 켜기)
+  const pins=L.layerGroup(); // 지점 마커(항상 표시)
   const ll=id=>[P[id].lat,P[id].lng];
   function drawSeg(a,b,label,color,group,dashed){
     L.polyline([ll(a),ll(b)],{color,weight:dashed?4:5,opacity:.9,dashArray:dashed?'8 8':null}).addTo(group);
@@ -835,19 +851,18 @@ function initMap(){
   ROUTES.pb.forEach(([a,b,t])=>drawSeg(a,b,t,C.pb,groups.pb,true));
   const markers={};
   Object.entries(P).forEach(([id,p])=>{
-    if(p.noMarker) return;
-    const g=p.type==='B'?groups.pb:p.type==='S'?groups.base:p.day===1?groups.d1:groups.d2;
+    if(p.noMarker||p.type==='S') return;
     markers[id]=L.marker([p.lat,p.lng],{icon:pinIcon(p.type==='S'?'+':id,colorOf(id),p.opt),title:p.name,riseOnHover:true,zIndexOffset:p.type==='G'?500:0})
       .bindPopup(popupHTML(id,p),{maxWidth:280})
       .bindTooltip(`${id} ${esc(shortName(id))}${p.opt?' (생략 가능)':''}<br><small>${esc((p.when||'').split(' · ')[0])}</small>`,{permanent:true,direction:p.dir||'right',className:'lbl',interactive:false})
-      .addTo(g);
+      .addTo(pins);
   });
   markers.B2=markers.M3;
-  Object.values(groups).forEach(g=>g.addTo(map));
+  pins.addTo(map); // 경로선은 기본으로 꺼 두고, 버튼을 누르면 켬
   const labelZoom=()=>{const z=map.getZoom(); map.getContainer().classList.toggle('hide-labels',z<11); $('#zoomhint').hidden=z>=11;};
   map.on('zoomend',labelZoom);
   const fit=ids=>map.fitBounds(L.latLngBounds(ids.map(ll)),{padding:[30,30]});
-  const allIds=Object.keys(P);
+  const allIds=Object.keys(P).filter(id=>P[id].type!=='S');
   setTimeout(()=>{ map.invalidateSize(); fit(allIds); labelZoom(); },30);
   $('#z-all').onclick=()=>fit(allIds); $('#z-d1').onclick=()=>fit(['M1','G1','G2','G3']); $('#z-sw').onclick=()=>fit(['G4','G5','G6','G7','G8','B1','M3']);
   [['t-d1','d1'],['t-d2','d2'],['t-pb','pb']].forEach(([bid,key])=>{const b=document.getElementById(bid);
@@ -869,7 +884,7 @@ function renderRouteList(api){
     <span><span class="nm">${esc(p.name)}${p.opt?'<span class="opt-badge">생략 가능</span>':''}</span><span class="sub">${esc(p.when)}</span></span></button>`;};
   const block=(title,color,items)=>`<div class="rl-day"><h3><span class="daybadge" style="background:${color}">${title}</span></h3>${items.map(x=>item(x.id,x.move)).join('')}</div>`;
   $('#routeList').innerHTML=block('1일차 · 10일(안)',C.d1,seq(ROUTES.d1))+block('2일차 · 11일(일)',C.d2,seq(ROUTES.d2))
-    +block('Plan B',C.pb,[{id:'B1'},{id:'B2'}])+block('응급의료',C.S,[{id:'S1'},{id:'S2'}]);
+    +block('Plan B',C.pb,[{id:'B1'},{id:'B2'}]);
   $('#routeList').onclick=e=>{const b=e.target.closest('[data-focus]'); if(b&&api) api.focus(b.dataset.focus);};
 }
 
