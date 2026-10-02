@@ -396,20 +396,20 @@ footer.src p{overflow-wrap:anywhere}
   <section class="share-box clay" aria-label="저녁 발견 나눔">
     <h2>🎨 그림으로 나누는 오늘의 발견 <small class="mute" style="font-family:var(--body);font-size:.95rem">10일 18:15 · 신서귀포 교회</small></h2>
     <div class="share-steps">
-      <div><b>그리기 15~25분</b><br>오늘 가장 신기했던 장면 하나를 그려요. 지점 번호(G1~G3)를 그림 구석에 써요.</div>
-      <div><b>질문 달기 5분</b><br>그림 아래에 "왜 그럴까?" 질문 하나를 적어요. 답은 아직 몰라도 돼요.</div>
+      <div><b>그리기 15~25분</b><br>오늘 가장 신기했던 장면 하나를 그려요.<br>지점 번호(G1~G3)를 그림 구석에 써요.</div>
+      <div><b>질문 달기 5분</b><br>그림 아래에 "왜 그럴까?" 질문 하나를 적어요.<br>답은 아직 몰라도 돼요.</div>
       <div><b>1분 발표</b><br>무엇을 보았고, 무엇이 궁금하고, 어떤 하나님의 손길을 느꼈는지 말해요.</div>
       <div><b>친구 질문 붙이기</b><br>친구 그림에 "나도 궁금해요" 스티커와 질문 하나를 붙여 줘요.</div>
     </div>
   </section>
   <section class="planb clay" aria-label="플랜 B">
     <h2>🌊 용머리해안 Plan B</h2>
-    <p>용머리해안(G8)은 파도가 높거나 물이 차면 문을 닫아요. <b>11일 15:00</b>에 선생님이 개방 여부를 확인하고 아래처럼 정해요. 어느 경우든 <b>17:30 해산은 용머리해안 주차장(M3)</b>이에요.<br>
-    <small class="mute">확인처: 용머리해안 064-760-6322 · 인스타그램 @6sot_official 당일 공지</small></p>
+    <p>용머리해안(G8)은 파도가 높거나 물이 차면 문을 닫아요.<br><b>11일 15:00</b>에 선생님이 개방 여부를 확인하고 아래처럼 정해요.<br>어느 경우든 <b>17:30 해산은 용머리해안 주차장(M3)</b>이에요.<br>
+    <small class="mute">확인처: 용머리해안 064-760-6322<br>인스타그램 @6sot_official 당일 공지</small></p>
     <div class="flow">
-      <div class="step"><span class="s-title">✅ 열림</span><p>15:30 G8 용머리해안 탐방 → 17:00 주차장으로 나와 마무리 → 17:30 해산</p></div>
-      <div class="step"><span class="s-title">🟣 파도로 닫힘 · 바람 보통</span><p>15:30 <b>B1 송악산 둘레길</b>. 절벽 위 길에서 바다 쪽 지층을 내려다봐요. 입구~첫 전망대까지만 왕복(약 60분), 난간 밖 금지 → 17:10 용머리해안 주차장 → 17:30 해산</p></div>
-      <div class="step"><span class="s-title">🟣 비·강풍</span><p>15:30 <b>B2 산방산 공영주차장 전망</b>(해산 장소와 같은 곳). 차 가까운 곳에서 용머리 전체 모양을 위에서 스케치해요(바닷가 진입 금지). 날씨가 나빠지면 해산을 앞당기고 단체 문자로 알려요.</p></div>
+      <div class="step"><span class="s-title">✅ 열림</span><p>15:30 G8 용머리해안 탐방<br>→ 17:00 주차장으로 나와 마무리<br>→ 17:30 해산</p></div>
+      <div class="step"><span class="s-title">🟣 파도로 닫힘 · 바람 보통</span><p>15:30 <b>B1 송악산 둘레길</b>.<br>절벽 위 길에서 바다 쪽 지층을 내려다봐요.<br>입구~첫 전망대까지만 왕복(약 60분), 난간 밖 금지<br>→ 17:10 용머리해안 주차장<br>→ 17:30 해산</p></div>
+      <div class="step"><span class="s-title">🟣 비·강풍</span><p>15:30 <b>B2 산방산 공영주차장 전망</b>(해산 장소와 같은 곳).<br>차 가까운 곳에서 용머리 전체 모양을 위에서 스케치해요(바닷가 진입 금지).<br>날씨가 나빠지면 해산을 앞당기고 단체 문자로 알려요.</p></div>
     </div>
     <p style="font-size:.9rem">Plan B 질문: <b>"멀리서 보니 가까이서 볼 때와 무엇이 다르게 보이나요?"</b> 용머리에 못 들어가도 수월봉(G6) 지층과 비교하는 미션은 그대로 해요.</p>
   </section>
@@ -630,6 +630,10 @@ const TL2=[
 /* ════════════════ 2. 공용 함수 ════════════════ */
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+/* 문장마다 줄바꿈(시간표용): . ? ! 뒤, 가운뎃점(·)에서 */
+const brS=s=>esc(s).replace(/([.?!])\s+(?=\S)/g,'$1<br>').replace(/\s+·\s+/g,'<br>');
+/* 질문이 이어질 때 줄바꿈(관찰 미션용): ? 뒤에서 */
+const brQ=s=>esc(s).replace(/\?\s+(?=\S)/g,'?<br>');
 const colorOf=id=>{const p=P[id]; if(!p) return C.M; if(p.type==='M') return C.M; if(p.type==='S') return C.S; if(p.type==='B') return C.pb; return p.day===1?C.d1:C.d2;};
 const shortName=id=>P[id]?.short||P[id]?.name||id;
 const kakao=p=>`https://map.kakao.com/link/map/${encodeURIComponent(p.name)},${p.lat},${p.lng}`;
@@ -669,7 +673,7 @@ function renderTL(list,el){
     const head=href?`<a href="${href}">${tag}${esc(title)}</a>`:`<span style="font-family:var(--display);font-size:1.05rem">${tag}${esc(title)}</span>`;
     const note=it.note||(p&&p.type==='G'?p.won:'');
     const cls=(it.cls||'')+(p&&p.opt&&!it.title?' optional':'');
-    return `<li class="${cls}"><span class="t">${esc(it.t)}</span><div class="what">${head}${p&&!it.title?optBadge(it.id):''}${note?`<small>${esc(note)}</small>`:''}</div></li>`;
+    return `<li class="${cls}"><span class="t">${esc(it.t)}</span><div class="what">${head}${p&&!it.title?optBadge(it.id):''}${note?`<small>${brS(note)}</small>`:''}</div></li>`;
   }).join('');
 }
 renderTL(TL1,$('#tl1')); renderTL(TL2,$('#tl2'));
@@ -683,9 +687,9 @@ function renderCards(){
       <button class="spot-head" type="button" data-rec="${id}" aria-label="${esc(p.name)} 기록장 열기">
         <span class="pin${p.opt?' opt':''}" style="background:${col}">${id}</span>
         <span><span class="ttl">${esc(p.name)}</span><span class="when">${esc(p.when)}</span>${optBadge(id)}</span></button>
-      <div class="q see"><b>👀 무엇이 보이나요?</b>${esc(p.see)}</div>
-      <div class="q won"><b>❓ 궁금한 것 (질문 3개를 먼저 적어요)</b>${esc(p.won)}</div>
-      <div class="q faith"><b>✨ 섭리 발견</b>${esc(p.faith)}</div>
+      <div class="q see"><b>👀 무엇이 보이나요?</b>${brQ(p.see)}</div>
+      <div class="q won"><b>❓ 궁금한 것 (질문 3개를 먼저 적어요)</b>${brQ(p.won)}</div>
+      <div class="q faith"><b>✨ 섭리 발견</b>${brQ(p.faith)}</div>
       <div class="q pic"><b>📷 사진 포인트</b>${esc(p.photo)}</div>
       <div class="q warn"><b>⚠️ 조심해요</b>${esc(p.risk)}</div>
       <div class="rec-row"><button class="btn small" type="button" data-rec="${id}">✏️ 기록하기</button>${pending?'<span class="wait-chip">전송 대기</span>':sent?'<span class="done-chip">보냄</span>':''}</div>
@@ -743,7 +747,7 @@ function openRec(site){
   cur={site,photos:[],touched:false};
   $('#ovPin').textContent=site; $('#ovPin').style.background=colorOf(site);
   $('#ovTitle').textContent=p.name+' 기록'; $('#ovWhen').textContent=p.when+(p.opt?' · 상황에 따라 생략될 수 있어요':'');
-  $('#h-see').textContent=p.see; $('#h-won').textContent=p.won; $('#h-faith').textContent=p.faith; $('#h-pic').textContent='추천: '+p.photo;
+  $('#h-see').innerHTML=brQ(p.see); $('#h-won').innerHTML=brQ(p.won); $('#h-faith').innerHTML=brQ(p.faith); $('#h-pic').textContent='추천: '+p.photo;
   const name=lsGet('xj-name',''); $('#f-name').value=name; fill(null); $('#ovStatus').hidden=true;
   if(name) prefill(site,name);
   $('#ov').hidden=false; document.body.style.overflow='hidden';
