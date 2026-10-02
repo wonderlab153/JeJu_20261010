@@ -8,7 +8,6 @@
 | index.html | 안내 사이트(안내 / 지도 / 시간표 / 관찰 미션 / 안전·복장 / 마스터) |
 | cover-1600.jpg, cover-800.jpg | 표지(PC·모바일) |
 | logo.png | 패스파인더 로고 |
-| Code.gs | 기록 저장소(구글 Apps Script) — 저장소에 올리지 않아도 됩니다 |
 
 ## 1. GitHub Pages로 공개
 1. 새 저장소를 만들고 index.html, cover-1600.jpg, cover-800.jpg, logo.png 를 올립니다.
@@ -16,7 +15,7 @@
 3. 1~2분 뒤 `https://<아이디>.github.io/<저장소>/` 로 열립니다.
 
 ## 2. 기록 저장소 연결(구글 시트 + 드라이브)
-1. 구글 시트 새로 만들기 → [확장 프로그램] → [Apps Script] → Code.gs 내용 붙여 넣기 → 저장
+1. 구글 시트 새로 만들기 → [확장 프로그램] → [Apps Script] → Code.gs 내용 붙여 넣기 → 저장 (Code.gs는 비밀번호가 들어 있어 이 저장소에 올리지 않습니다)
 2. 함수 `setup` 실행 → 권한 허용
 3. [배포] → [새 배포] → 웹 앱 / 실행 계정: 나 / 액세스: 모든 사용자 → 배포
 4. 나온 웹 앱 URL(…/exec)을 index.html 의 `const SCRIPT_URL = '';` 따옴표 안에 넣고 다시 커밋
