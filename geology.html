@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>제주 지질탐사 · 4학년 눈높이 해설</title>
+<style>
+:root{
+  --ink:#23232b; --sub:#5b5b68; --bg:#fbf7f1; --card:#ffffff; --line:#e6ddd0;
+  --lava:#e8551f; --lava-soft:#fde6da; --sea:#1d7fa8; --sea-soft:#dcf0f8;
+  --basalt:#44444d; --moss:#3e8e5a; --moss-soft:#e2f3e8; --sand:#c9a46b; --sand-soft:#f6ecd9;
+  --warn:#b3261e; --warn-soft:#fde8e6;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;line-height:1.7;font-size:17px}
+.wrap{max-width:980px;margin:0 auto;padding:0 18px 60px}
+header{background:linear-gradient(135deg,#2b2b33 0%,#5a2d1c 55%,#e8551f 120%);color:#fff;padding:36px 18px 30px}
+header .wrap{padding-bottom:0}
+header h1{margin:0 0 6px;font-size:30px;line-height:1.3}
+header p{margin:4px 0;color:#ffe9dd}
+.badge{display:inline-block;background:rgba(255,255,255,.18);border-radius:999px;padding:3px 12px;font-size:14px;margin:8px 6px 0 0}
+h2{font-size:23px;margin:46px 0 6px;display:flex;align-items:center;gap:8px}
+h2 .no{background:var(--lava);color:#fff;border-radius:8px;padding:0 10px;font-size:16px;line-height:30px}
+.lead{color:var(--sub);margin:0 0 16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:14px 0}
+.note{background:var(--sand-soft);border-left:5px solid var(--sand);padding:12px 16px;border-radius:8px;font-size:15px;margin:14px 0}
+
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 10px;text-align:center;position:relative}
+.step .n{width:30px;height:30px;border-radius:50%;background:var(--basalt);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;margin-bottom:4px}
+.step .emo{font-size:30px;display:block}
+.step b{display:block;font-size:15px;line-height:1.35}
+.step small{display:block;color:var(--sub);font-size:13px;line-height:1.4;margin-top:4px}
+.chip{display:inline-block;background:var(--lava-soft);color:#9a3410;border-radius:999px;padding:1px 9px;font-size:12.5px;margin:3px 2px 0;font-weight:600}
+.step:not(:last-child)::after{content:"▶";position:absolute;right:-12px;top:42%;color:var(--lava);font-size:13px;z-index:2}
+@media(max-width:760px){.steps{grid-template-columns:1fr}.step{text-align:left}.step:not(:last-child)::after{content:"▼";right:auto;left:22px;top:auto;bottom:-14px}}
+
+svg{max-width:100%;height:auto;display:block}
+.svgbox{background:#fff;border:1px solid var(--line);border-radius:16px;padding:8px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.an{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.an .t{font-weight:700;color:var(--lava)}
+.an .big{font-size:26px}
+
+/* route */
+.day{border-radius:16px;margin:26px 0 6px;padding:14px 18px;color:#fff}
+.day.d1{background:linear-gradient(90deg,#1d6a8a,#3aa0c8)}
+.day.d2{background:linear-gradient(90deg,#a8441a,#e8551f)}
+.day h3{margin:0;font-size:21px}
+.day small{opacity:.95}
+.route{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:8px}
+.route span{background:rgba(255,255,255,.22);border-radius:999px;padding:1px 11px;font-size:14.5px;font-weight:600}
+.route i{font-style:normal;opacity:.85}
+
+.site{background:var(--card);border:1px solid var(--line);border-radius:18px;margin:16px 0;overflow:hidden}
+.site .top{display:flex;gap:12px;align-items:center;padding:14px 18px;color:#fff}
+.site .top .num{background:rgba(255,255,255,.25);border-radius:10px;padding:2px 12px;font-weight:800;font-size:19px;white-space:nowrap}
+.site .top h3{margin:0;font-size:21px;line-height:1.3}
+.site .top small{display:block;opacity:.92;font-size:13.5px}
+.c0{background:linear-gradient(90deg,#8d6e3f,#c9a46b)}
+.c1{background:linear-gradient(90deg,#1d6a8a,#3aa0c8)}
+.c2{background:linear-gradient(90deg,#2f7a4a,#5db07a)}
+.c3{background:linear-gradient(90deg,#33333b,#6a6a76)}
+.c4{background:linear-gradient(90deg,#a8441a,#e8551f)}
+.c5{background:linear-gradient(90deg,#7a2f3f,#c0505f)}
+.c6{background:linear-gradient(90deg,#4a5d78,#8aa0bd)}
+.c7{background:linear-gradient(90deg,#177a86,#4fc0cc)}
+.body{padding:6px 18px 16px}
+.one{font-size:18px;font-weight:700;margin:12px 0 8px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:760px){.row{grid-template-columns:1fr}.site .top{flex-wrap:wrap}}
+.box{border-radius:12px;padding:10px 14px;font-size:15.5px}
+.box h4{margin:0 0 4px;font-size:15px}
+.b-an{background:var(--lava-soft)}
+.b-link{background:var(--sea-soft)}
+.b-look{background:var(--moss-soft)}
+.b-warn{background:var(--warn-soft)}
+.box ul,.box ol{margin:4px 0 2px;padding-left:20px}
+.look li{margin:3px 0}
+.eye{font-weight:800;color:var(--moss)}
+details{margin-top:10px;background:#f4f1ec;border-radius:10px;padding:8px 14px}
+summary{cursor:pointer;font-weight:700}
+.tag{font-size:12.5px;background:#fff;border:1px solid var(--line);border-radius:6px;padding:0 7px;margin-left:6px;color:var(--sub);font-weight:600}
+
+.venn-wrap{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:760px){.venn-wrap{grid-template-columns:1fr}}
+
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center}
+.fl{background:#fff;border:2px solid var(--basalt);border-radius:12px;padding:8px 12px;text-align:center;font-size:15px}
+.fl.q{background:#fff5d6;border-color:#d9a400}
+.fl.a{background:var(--sea-soft);border-color:var(--sea)}
+.fl.b{background:var(--lava-soft);border-color:var(--lava)}
+.fl.c{background:#eee9f6;border-color:#7a5fb0}
+.arrow{font-size:20px;color:var(--sub)}
+
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:#fff}
+table{border-collapse:collapse;width:100%;min-width:820px;font-size:15px}
+th{background:var(--basalt);color:#fff;text-align:left;padding:10px 12px;font-size:14.5px}
+td{padding:10px 12px;border-top:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:#fcfaf6}
+tr.dsep td{background:#f1ece2!important;font-weight:800;border-top:2px solid var(--basalt)}
+
+.ox{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:12px}
+.oxc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 16px;font-size:15.5px}
+.oxc .x{color:var(--warn);font-weight:800}
+.oxc .o{color:var(--moss);font-weight:800}
+
+.tide{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:760px){.tide{grid-template-columns:1fr}}
+.td{border-radius:14px;padding:12px 16px;background:var(--sea-soft)}
+.bar{position:relative;height:26px;background:#fff;border-radius:8px;border:1px solid #b9dcea;margin:6px 0 2px;overflow:hidden}
+.bar i{position:absolute;top:0;bottom:0;display:block}
+footer{margin-top:40px;color:var(--sub);font-size:14px}
+
+html{scroll-behavior:smooth}
+h2{scroll-margin-top:64px}
+.nav{position:sticky;top:0;z-index:20;background:#2b2b33;overflow-x:auto;white-space:nowrap;padding:8px 12px}
+.nav a{color:#ffe9dd;text-decoration:none;font-size:14.5px;margin-right:16px;font-weight:600}
+.nav a:hover{text-decoration:underline}
+.ev{color:#0b5fa5;text-decoration:underline;text-underline-offset:3px;font-weight:600}
+.btn{display:inline-block;border:1px solid #0b5fa5;color:#0b5fa5;border-radius:999px;padding:0 10px;font-size:13px;margin:2px 4px 2px 0;text-decoration:none;background:#fff;line-height:1.7}
+.btn:hover{background:#0b5fa5;color:#fff}
+.srcs{margin-top:8px;font-size:13.5px;color:var(--sub)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 12px;text-align:center}
+.stat b{display:block;font-size:24px;color:var(--lava);line-height:1.2}
+.stat span{font-size:13.5px;color:var(--sub);display:block}
+.val{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.val .v{background:#fff;border:1px solid var(--line);border-left:6px solid var(--lava);border-radius:12px;padding:12px 14px;font-size:15.5px}
+.val .v h4{margin:0 0 4px;font-size:16px}
+.age{background:#fff8ec;border:1px solid #ecd9b0;border-radius:14px;padding:12px 14px;margin-top:12px}
+.age h4{margin:0 0 8px;font-size:16px}
+.ag{display:grid;grid-template-columns:1fr 28px 1fr;gap:8px;align-items:stretch}
+@media(max-width:760px){.ag{grid-template-columns:1fr}.ag .ar{transform:rotate(90deg);text-align:center}}
+.ag .o{background:#efe9de;border-radius:10px;padding:8px 12px;font-size:15px}
+.ag .n{background:#e2f3e8;border-radius:10px;padding:8px 12px;font-size:15px;border:2px solid #3e8e5a}
+.ag .ar{align-self:center;color:var(--lava);font-weight:800;text-align:center}
+.ag small{display:block;font-weight:800;color:var(--sub);margin-bottom:2px}
+.why{font-size:15px;margin:8px 0 2px}
+.kid{font-size:15px;background:#fff;border-radius:8px;padding:6px 10px;margin-top:6px;border:1px dashed #d9a400}
+.el{margin-top:12px}
+.el h4{margin:0 0 6px;font-size:16px}
+.el table{min-width:640px;font-size:14.5px}
+.el th{background:#3e8e5a}
+.hyp{background:#eee9f6;border-radius:6px;padding:0 6px;font-size:12.5px;color:#5b3fa0;font-weight:700}
+.chartbox{background:#fff;border:1px solid var(--line);border-radius:16px;padding:8px;overflow-x:auto}
+.refs li{margin:6px 0;font-size:15px}
+.refs .tg{font-size:12px;background:#f1ece2;border-radius:6px;padding:0 6px;margin-left:4px;font-weight:700;color:var(--sub)}
+.fix{background:var(--warn-soft);border-left:5px solid var(--warn);border-radius:8px;padding:12px 16px;font-size:15px;margin:14px 0}
+
+[hidden]{display:none!important}
+.tabbar{position:sticky;top:0;z-index:30;background:#2b2b33;display:flex;gap:6px;overflow-x:auto;padding:8px 12px;margin:0 -18px}
+.tab{flex:0 0 auto;border:0;background:rgba(255,255,255,.12);color:#ffe9dd;font:inherit;font-size:15px;font-weight:700;padding:7px 14px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.tab.on{background:#e8551f;color:#fff}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
+.pill{border:1px solid #c9bfae;background:#fff;color:#23232b;font:inherit;font-size:14px;font-weight:700;padding:5px 12px;border-radius:999px;cursor:pointer}
+.pill.on{background:#44444d;color:#fff;border-color:#44444d}
+.vbox{max-width:760px;margin:0 auto}
+.vfoot{text-align:center;margin:8px 0 2px;font-size:16px}
+.panel{scroll-margin-top:60px}
+
+</style>
+</head>
+<body>
+
+<header>
+<div class="wrap">
+  <h1>🌋 제주는 어떻게 만들어졌을까?<br>탐사지 속 지질 이야기</h1>
+  <p>초등 4학년 눈높이 + 교사용 심화(옛 연구 vs 최신 연구) · 모든 연대에는 클릭 가능한 근거를 달았어요</p>
+  <span class="badge">EXPLORE 제주 · 2026.10.10~11</span>
+  <span class="badge">관찰 → 궁금 → 왜?</span>
+  <span class="badge">근거 확인일 2026-10-10</span>
+</div>
+</header>
+<div class="note">📌 <b>읽는 법</b> · <span class="ev" style="text-decoration:underline">밑줄 글자</span>와 <span class="btn" style="pointer-events:none">[번호] 출처 ↗</span> 버튼은 누르면 근거 페이지가 새 창으로 열려요. 연대는 연구·측정법마다 달라서 <b>"옛 설명 ▶ 최신 연구"</b>로 나란히 보여 줘요. 언론 보도는 연구를 요약한 2차 자료이니, 수치는 현장 안내판·원 논문과 함께 확인해 주세요.</div>
+
+<nav class="tabbar" id="bar-main"><button class="tab on" data-g="main" data-t="intro">🌋 제주 소개</button><button class="tab" data-g="main" data-t="story">📚 형성 5단계</button><button class="tab" data-g="main" data-t="day1">1일차 탐사지</button><button class="tab" data-g="main" data-t="day2">2일차 탐사지</button><button class="tab" data-g="main" data-t="venn">🔗 벤다이어그램</button><button class="tab" data-g="main" data-t="compare">📋 비교표·퀴즈</button><button class="tab" data-g="main" data-t="safety">🧢 안전·물때</button><button class="tab" data-g="main" data-t="refs">📎 참고문헌</button></nav><section class="panel" data-g="main" id="intro"><div class="fix"><b>🔧 이전 버전 정정 안내</b> (무엇이 바뀌었나 → 결론 → 영향)<ul style="margin:6px 0 0;padding-left:20px">
+<li><b>만장굴</b> 「약 10만~30만 년」→ 최신 측정은 <b>약 8천~1만 년</b>(거문오름 용암동굴계 기준). 아래 카드 반영.</li>
+<li><b>산방산</b> 「70~80만 년」→ <b>약 78.5만~80만 년</b>(정밀 측정)으로 좁혀짐.</li>
+<li><b>용머리해안</b> 「약 100만 년」→ 연대 <b>미확정</b>. '120만 년' 주장과 '산방산보다 젊다'는 해석이 맞서요.</li>
+<li><b>서귀포층</b> 「섬이 되기 전 바다 밑」→ <b>섬 초기, 수성화산 폭발과 바다 퇴적이 번갈아</b> 쌓인 층(약 180만~55만 년).</li>
+<li><b>송악산</b> 「수천 년 전」→ 측정마다 <b>약 3.7천~7천 년</b>으로 차이가 있어요.</li>
+</ul></div>
+
+<h2 id="intro"><span class="no">1</span> 제주를 소개합니다</h2>
+<p class="lead">한 섬에 화산의 거의 모든 얼굴이 모여 있어요. 숫자와 가치, 그리고 "연구가 어떻게 바뀌었는지"를 먼저 정리해요.</p>
+
+<div class="stats">
+  <div class="stat"><b>약 180만 년</b><span>수성화산 활동 시작 <a class="ev" href="https://www.jeju.go.kr/geopark/park/jejuintro/volcanic.htm" target="_blank" rel="noopener noreferrer">[1]</a></span></div>
+  <div class="stat"><b>368개</b><span>도내 오름 <a class="ev" href="https://newsseoul.co.kr/news/view/1065607850352699" target="_blank" rel="noopener noreferrer">[9]</a></span></div>
+  <div class="stat"><b>91.7만~2천 년</b><span>연대가 밝혀진 90개 오름의 범위 <a class="ev" href="https://www.twig24.com/news/scholaship/2026/03/18/20260318500132" target="_blank" rel="noopener noreferrer">[10]</a></span></div>
+  <div class="stat"><b>2007</b><span>세계자연유산 등재 <a class="ev" href="https://en.wikipedia.org/wiki/Jeju_Volcanic_Island_and_Lava_Tubes" target="_blank" rel="noopener noreferrer">[22]</a></span></div>
+  <div class="stat"><b>2010</b><span>세계지질공원 인증 <a class="ev" href="https://m.go.seoul.co.kr/news/2010/10/04/20101004800002" target="_blank" rel="noopener noreferrer">[20]</a></span></div>
+  <div class="stat"><b>약 100m</b><span>서귀포층 두께 <a class="ev" href="https://www.jeju.go.kr/geopark/intro/fossil/intro.htm" target="_blank" rel="noopener noreferrer">[2]</a></span></div>
+</div>
+
+<h3 style="margin:22px 0 8px">💎 지질학적 가치 5가지</h3>
+<div class="val">
+  <div class="v"><h4>① 세계 최고 수준의 용암동굴</h4>세계유산(기준 vii·viii)의 근거가 거문오름 용암동굴계예요. 구성은 한라산·성산일출봉·거문오름 용암동굴계. <a class="btn" href="https://en.wikipedia.org/wiki/Jeju_Volcanic_Island_and_Lava_Tubes" target="_blank" rel="noopener noreferrer">[22] 세계유산 ↗</a></div>
+  <div class="v"><h4>② 화쇄난류 연구의 교과서, 수월봉</h4>화쇄난류(뜨거운 화산재 구름)의 <b>첫 퇴적 모델</b>이 수월봉 연구에서 나왔고 여러 교과서·논문에 소개돼요. <a class="btn" href="https://www.jeju.go.kr/geopark/intro/suweolbong/acavalue.htm" target="_blank" rel="noopener noreferrer">[3] 수월봉 ↗</a></div>
+  <div class="v"><h4>③ 우리나라 유일의 '제4기 초' 퇴적층</h4>서귀포층은 고해양 환경을 읽는 열쇠이고 1968년 천연기념물로 지정됐어요. <a class="btn" href="https://www.jeju.go.kr/geopark/intro/fossil/intro.htm" target="_blank" rel="noopener noreferrer">[2] 서귀포층 ↗</a></div>
+  <div class="v"><h4>④ 화산 성장 단계가 한 섬에</h4>수성화산 → 용암대지 → 한라산 → 마지막 수성화산까지, 성장 순서가 지층에 남아 있어요. <a class="btn" href="https://www.jeju.go.kr/geopark/park/jejuintro/volcanic.htm" target="_blank" rel="noopener noreferrer">[1] 형성과정 ↗</a></div>
+  <div class="v"><h4>⑤ 다양한 화산 지형 전시장</h4>응회환·용암돔(산방산)·용암동굴·오름·주상절리가 가까이에 있어요. <a class="btn" href="https://m.go.seoul.co.kr/news/2010/10/04/20101004800002" target="_blank" rel="noopener noreferrer">[20] 지질공원 9곳 ↗</a></div>
+</div>
+
+<h3 style="margin:26px 0 8px">🌋 화산은 모두 몇 번 터졌을까?</h3>
+<div class="card">
+  <p style="margin:0 0 8px"><b>정답: 정확한 총 횟수는 아직 아무도 몰라요.</b> 대신 이렇게 어림해요.</p>
+  <ul style="margin:0;padding-left:20px">
+    <li>오름은 대부분 <b>수주~수년 사이의 짧은 분출로 만들어진 '단성화산'</b>이에요. 오름 하나 = 분출 사건 하나로 보면 <b>최소 368번+</b>이에요. <a class="ev" href="https://www.twig24.com/news/scholaship/2026/03/18/20260318500132" target="_blank" rel="noopener noreferrer">[10]</a></li>
+    <li>오름 ≈ 360여 개 중 십여 개를 뺀 대부분은 <b>분석구</b>(구멍 많은 화산 알갱이가 쌓인 화산)예요. <a class="ev" href="https://www.jeju.go.kr/geopark/park/jejuintro/volcanic.htm" target="_blank" rel="noopener noreferrer">[1]</a></li>
+    <li>하지만 "1개 = 1번"이 아닌 곳도 있어요. <b>성산일출봉은 3회</b> 분출한 복합화산(예전엔 1회로 설명), <b>용머리는 3개 화구</b>, <b>송악산</b>은 응회환 뒤에 스코리아·용암·응회암이 이어진 다단계예요. <a class="ev" href="https://m.seoul.co.kr/news/2024/10/15/20241015500041" target="_blank" rel="noopener noreferrer">[19]</a> <a class="ev" href="https://www.jeju.go.kr/geopark/intro/yongmeori/intro.htm" target="_blank" rel="noopener noreferrer">[4]</a> <a class="ev" href="https://doi.org/10.1016/S0377-0273(02)00302-5" target="_blank" rel="noopener noreferrer">[6]</a></li>
+    <li>땅속에는 <b>묻힌 화산</b>도 있어요. 더데오름 아래에서 산방산급 용암돔 흔적이 2026년에 처음 확인됐어요. <a class="ev" href="https://m.seoul.co.kr/news/2026/07/20/20260720500069" target="_blank" rel="noopener noreferrer">[17]</a></li>
+    <li>세계유산본부는 90개 오름의 연대를 밝혔고 <b>2028년까지 최대 200개</b>를 추가로 밝힐 계획이에요. 숫자는 앞으로 더 정확해져요. <a class="ev" href="https://www.twig24.com/news/scholaship/2026/03/18/20260318500132" target="_blank" rel="noopener noreferrer">[10]</a></li>
+  </ul>
+  <p class="kid">🧒 4학년 말로: 제주는 "큰 화산 하나"가 아니라 <b>수백 번의 폭발이 쌓인 섬</b>이에요. 몇 번인지 세는 일은 지금도 과학자들이 하고 있어요!</p>
+</div>
+
+<h3 style="margin:26px 0 8px">⏳ 옛 연구 vs 최신 연구 — 제주 전체</h3>
+<div class="tw"><table style="min-width:860px">
+<tr><th>주제</th><th>옛 설명</th><th>최신 연구</th><th>무엇이 달라졌나</th><th>근거</th></tr>
+<tr><td><b>섬의 나이대</b></td><td>1920~30년대: 서귀포 퇴적층을 '신생대 제3기 말'로 봄</td><td>제4기 초, 약 180만 년 전 수성화산 시작</td><td>지질시대가 한 단계 젊어짐</td><td><a class="btn" href="https://www.seogwipo.co.kr/news/articleView.html?idxno=217242" target="_blank" rel="noopener noreferrer">[16]</a><a class="btn" href="https://www.jeju.go.kr/geopark/park/jejuintro/volcanic.htm" target="_blank" rel="noopener noreferrer">[1]</a></td></tr>
+<tr><td><b>서귀포층</b></td><td>조개 화석이 든 바다 퇴적층. 약 100만 년</td><td>화산쇄설성·비화산성·화석 없는 층까지 포함하는 퇴적 층서로 재정의 제안(2004). 180만~55만 년</td><td>"조개층" → "수성화산과 바다 퇴적이 번갈아 쌓인 층"</td><td><a class="btn" href="https://doi.org/10.1007/bf02910280" target="_blank" rel="noopener noreferrer">[7]</a><a class="btn" href="https://www.jeju.go.kr/geopark/intro/fossil/intro.htm" target="_blank" rel="noopener noreferrer">[2]</a></td></tr>
+<tr><td><b>오름 수</b></td><td>지질공원 안내: 약 360여 개</td><td>2024년 보도·2026년 조사: 368개</td><td>집계가 구체화</td><td><a class="btn" href="https://www.jeju.go.kr/geopark/park/jejuintro/volcanic.htm" target="_blank" rel="noopener noreferrer">[1]</a><a class="btn" href="https://newsseoul.co.kr/news/view/1065607850352699" target="_blank" rel="noopener noreferrer">[9]</a></td></tr>
+<tr><td><b>성산일출봉</b></td><td>1회 분출 단성화산, 약 5천 년 전</td><td>3회 분출 복합화산, 약 5천~6,700년 전 (해저 분화구·패각 연대)</td><td>횟수 1→3, 시작 시기 앞당겨짐</td><td><a class="btn" href="https://m.seoul.co.kr/news/2024/10/15/20241015500041" target="_blank" rel="noopener noreferrer">[19]</a></td></tr>
+<tr><td><b>가장 최근 분화</b></td><td>약 7천 년 전 송악산(OSL 7.0±0.3 ka)이 '가장 최근'으로 알려짐</td><td>2014: 상창리 현무암 약 5천 년 · 2026: 송악산 약 3,700년, 가장 젊은 오름은 돌오름 약 2천 년</td><td>"마지막 분화" 기록이 계속 젊어짐. 활화산(1만 년 이내 분화) 가능성 논의</td><td><a class="btn" href="https://doi.org/10.1016/j.quageo.2006.05.002" target="_blank" rel="noopener noreferrer">[5]</a><a class="btn" href="https://www.sciencedaily.com/releases/2014/07/140722102251.htm" target="_blank" rel="noopener noreferrer">[12]</a><a class="btn" href="https://www.twig24.com/news/scholaship/2026/03/18/20260318500132" target="_blank" rel="noopener noreferrer">[10]</a></td></tr>
+<tr><td><b>만장굴·거문오름 계</b></td><td>K-Ar로 약 20만~30만 년</td><td>2021: U-Th/He 약 9천 년(±1,800) → 8천~1만 년</td><td>수십만 년 → 1만 년 안쪽 (측정법 교체)</td><td><a class="btn" href="https://v.daum.net/v/kJC37NaGlL" target="_blank" rel="noopener noreferrer">[13]</a></td></tr>
+<tr><td><b>산방산</b></td><td>약 80만 년(K-Ar 시기 설명)</td><td>Ar-Ar 802±5 ka → 지르콘 U-Pb 785±5 ka(2024) → 2026 조사 78.5만 년</td><td>값은 비슷, 오차가 크게 줄어듦</td><td><a class="btn" href="https://www.khan.co.kr/article/201506182152585/amp" target="_blank" rel="noopener noreferrer">[21]</a><a class="btn" href="https://link.springer.com/article/10.1186/s40543-024-00427-3" target="_blank" rel="noopener noreferrer">[8]</a></td></tr>
+<tr><td><b>용머리해안</b></td><td>2018 보도: 약 120만 년, 산방산(80만)보다 먼저</td><td>2023: 산방산 조면암 <u>위</u>에 용머리 응회암이 놓여 더 젊다는 해석, 절대연대 미확정</td><td>"가장 오래된 화산" 지위와 순서가 논쟁 중</td><td><a class="btn" href="https://www.khan.co.kr/article/201804192035005" target="_blank" rel="noopener noreferrer">[15]</a><a class="btn" href="https://www.seogwipo.co.kr/news/articleView.html?idxno=219910" target="_blank" rel="noopener noreferrer">[14]</a></td></tr>
+<tr><td><b>백록담</b></td><td>—</td><td>2026 조사: 분화구 형성 약 1.6만 년 / 2024 지르콘: 백록담 지르콘 28.7±1.6 ka</td><td>측정 대상이 달라요(분화구 형성 vs 마그마 속 결정)</td><td><a class="btn" href="https://www.twig24.com/news/scholaship/2026/03/18/20260318500132" target="_blank" rel="noopener noreferrer">[10]</a><a class="btn" href="https://link.springer.com/article/10.1186/s40543-024-00427-3" target="_blank" rel="noopener noreferrer">[8]</a></td></tr>
+</table></div>
+
+<h3 style="margin:26px 0 8px">📊 연대가 밝혀진 제주의 화산들 (눈금은 '로그': 한 칸이 10배)</h3>
+<p class="lead" style="margin-bottom:8px">주황색이 이번 탐사지. 용머리·단산은 정밀한 절대연대가 아직 없어 그림에 넣지 못했어요.</p>
+<div class="chartbox"><svg id="agechart" viewBox="0 0 900 700" role="img" aria-label="제주 오름과 지층의 연대 비교 그래프"></svg></div>
+<div class="srcs">📎 자료: <a class="btn" href="https://www.twig24.com/news/scholaship/2026/03/18/20260318500132" target="_blank" rel="noopener noreferrer">[10] 90개 오름 연대</a><a class="btn" href="https://v.daum.net/v/kJC37NaGlL" target="_blank" rel="noopener noreferrer">[13] 거문오름계</a><a class="btn" href="https://www.jeju.go.kr/geopark/intro/fossil/intro.htm" target="_blank" rel="noopener noreferrer">[2] 서귀포층</a><a class="btn" href="https://m.seoul.co.kr/news/2024/10/15/20241015500041" target="_blank" rel="noopener noreferrer">[19] 성산일출봉</a></div>
+
+<h3 style="margin:26px 0 8px">🧪 연대를 재는 방법이 바뀌었어요</h3>
+<div class="tw"><table style="min-width:680px">
+<tr><th>방법</th><th>쉬운 설명</th><th>제주에서 알려진 점</th><th>근거</th></tr>
+<tr><td>K-Ar</td><td>오래된 돌의 '나이테' 읽기</td><td>매우 젊은 화산에는 오차가 커서 맞지 않다는 지적</td><td><a class="btn" href="https://v.daum.net/v/kJC37NaGlL" target="_blank" rel="noopener noreferrer">[13]</a><a class="btn" href="https://www.seogwipo.co.kr/news/articleView.html?idxno=219910" target="_blank" rel="noopener noreferrer">[14]</a></td></tr>
+<tr><td>Ar-Ar</td><td>K-Ar의 정밀 버전</td><td>범섬 80.4만·문섬 82.4만·섶섬 79.6만 년. 문섬·섶섬은 K-Ar에서 약 73만 년이었음</td><td><a class="btn" href="https://www.segye.com/newsView/20260706506293" target="_blank" rel="noopener noreferrer">[18]</a></td></tr>
+<tr><td>방사성탄소(¹⁴C)</td><td>숯·조개껍데기 속 탄소 시계</td><td>탄화목으로 약 5천 년 전 현무암 확인(2014)</td><td><a class="btn" href="https://www.sciencedaily.com/releases/2014/07/140722102251.htm" target="_blank" rel="noopener noreferrer">[12]</a></td></tr>
+<tr><td>OSL</td><td>모래알이 마지막으로 햇빛을 본 시각 재기</td><td>수월봉 18.3·18.6 ka, 송악산 7.0 ka</td><td><a class="btn" href="https://doi.org/10.1016/j.quageo.2006.05.002" target="_blank" rel="noopener noreferrer">[5]</a></td></tr>
+<tr><td>U-Th/He · 지르콘 U-Pb</td><td>작은 광물 결정 속 시계</td><td>거문오름계 약 9천 년(U-Th/He), 산방산 785 ka(지르콘 U-Pb)</td><td><a class="btn" href="https://v.daum.net/v/kJC37NaGlL" target="_blank" rel="noopener noreferrer">[13]</a><a class="btn" href="https://link.springer.com/article/10.1186/s40543-024-00427-3" target="_blank" rel="noopener noreferrer">[8]</a></td></tr>
+</table></div>
+<p class="note">🧒 4학년 말로: 시계가 좋아지면 "몇 시"가 바뀌어요. 과학은 <b>틀렸다 → 고쳤다</b>가 아니라 <b>더 정확해졌다</b>를 쌓아 가요. 세계유산본부도 연대가 "추가 연구에 따라 일부 조정될 수 있다"고 밝혔어요. <a class="ev" href="https://jnuri.net/news/article.html?no=67479" target="_blank" rel="noopener noreferrer">[11]</a></p>
+</section><section class="panel" data-g="main" id="story" hidden><h2 id="story"><span class="no">2</span> 제주를 만든 5단계 이야기</h2>
+<p class="lead">탐사지 9곳은 이 이야기책의 서로 다른 페이지예요.</p>
+<div class="steps">
+  <div class="step"><div><span class="n">1</span><span class="emo">🐚</span><b>얕은 바다에서 폭발·퇴적</b><small>수성화산 폭발과 바다 퇴적이 번갈아 쌓였어요(약 100m).</small><span class="chip">서귀포 패류화석층</span></div></div>
+  <div class="step"><div><span class="n">2</span><span class="emo">💥</span><b>물가에서 "펑!"</b><small>마그마가 물을 만나 폭발, 화산재가 쌓였어요.</small><span class="chip">용머리해안</span><span class="chip">수월봉</span><span class="chip">송악산</span></div></div>
+  <div class="step"><div><span class="n">3</span><span class="emo">🔥</span><b>용암이 흘러 섬이 자라다</b><small>묽은 용암이 바다까지 흘러 섬이 넓어졌어요.</small><span class="chip">만장굴</span><span class="chip">김녕해변</span></div></div>
+  <div class="step"><div><span class="n">4</span><span class="emo">⛰️</span><b>곳곳에 화산이 솟다</b><small>오름 368개, 끈적한 용암 산도 솟았어요.</small><span class="chip">단산</span><span class="chip">산방산</span></div></div>
+  <div class="step"><div><span class="n">5</span><span class="emo">💧</span><b>물과 파도가 다듬다</b><small>오랜 시간 물이 바위를 깎고 모래를 만들었어요.</small><span class="chip">안덕계곡</span><span class="chip">김녕해변</span><span class="chip">용머리해안</span><span class="chip">돌고래 바다</span></div></div>
+</div>
+<div class="note" style="margin-top:12px">⚠️ 이 5단계는 <b>이해를 돕는 큰 흐름</b>이에요. 실제로는 단계가 겹쳐요(예: 수성화산은 초기뿐 아니라 수천 년 전 송악산까지 계속). 순서도 연구에 따라 논쟁이 있어요(산방산 vs 용머리). <a class="btn" href="https://www.jeju.go.kr/geopark/park/jejuintro/volcanic.htm" target="_blank" rel="noopener noreferrer">[1] 형성 단계 ↗</a></div>
+
+<h2><span class="no">3</span> 한눈에 보는 제주 단면도</h2>
+<p class="lead">제주를 칼로 반 자르면 이런 모습이에요. 번호는 위 5단계와 같아요.</p>
+<div class="svgbox">
+<svg viewBox="0 0 800 400" role="img" aria-label="제주 단면 모식도">
+  <rect width="800" height="400" fill="#fdf3e3"/>
+  <rect y="190" width="800" height="210" fill="#bfe3f1"/>
+  <rect x="0" y="322" width="800" height="14" fill="#d9bf8c"/>
+  <rect x="0" y="336" width="800" height="14" fill="#c9a46b"/>
+  <rect x="0" y="350" width="800" height="14" fill="#b88f55"/>
+  <rect x="0" y="364" width="800" height="36" fill="#a17a45"/>
+  <text x="14" y="377" font-size="14" fill="#fff">🐚 ① 바다 밑에 쌓인 층 (서귀포층)</text>
+  <text x="560" y="336" font-size="13" fill="#6b4f22">🐚 조개 화석</text>
+  <path d="M110,322 L235,205 Q330,130 400,62 Q470,130 565,205 L690,322 Z" fill="#55555e"/>
+  <path d="M170,270 Q400,150 640,270" stroke="#7a7a86" stroke-width="3" fill="none"/>
+  <path d="M215,235 Q400,115 590,235" stroke="#7a7a86" stroke-width="3" fill="none"/>
+  <path d="M135,300 Q400,190 670,300" stroke="#7a7a86" stroke-width="3" fill="none"/>
+  <path d="M380,322 L380,215 Q400,200 420,215 L420,322 Z" fill="#e8551f"/>
+  <text x="430" y="300" font-size="13" fill="#ffd7c2">마그마 길</text>
+  <rect y="190" width="800" height="132" fill="#1d7fa8" opacity=".33"/>
+  <line x1="0" y1="190" x2="800" y2="190" stroke="#1d7fa8" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="12" y="184" font-size="13" fill="#1d6a8a">바다 높이</text>
+  <text x="400" y="50" font-size="16" text-anchor="middle" fill="#23232b" font-weight="700">한라산</text>
+  <g fill="#8b3a1c"><polygon points="262,168 280,140 298,168"/><polygon points="305,140 320,118 336,140"/><polygon points="470,118 486,94 502,118"/><polygon points="515,160 532,134 549,160"/></g>
+  <g><circle cx="280" cy="128" r="13" fill="#e8551f"/><text x="280" y="133" font-size="14" text-anchor="middle" fill="#fff" font-weight="700">④</text></g>
+  <text x="280" y="108" font-size="13" text-anchor="middle" fill="#6b2a10">오름들 (단산)</text>
+  <rect x="440" y="168" width="110" height="20" rx="10" fill="#17171b"/>
+  <g><circle cx="575" cy="178" r="13" fill="#e8551f"/><text x="575" y="183" font-size="14" text-anchor="middle" fill="#fff" font-weight="700">③</text></g>
+  <text x="495" y="205" font-size="13" text-anchor="middle" fill="#fff">용암동굴 (만장굴)</text>
+  <g>
+    <polygon points="196,224 236,196 262,198 252,236 205,238" fill="#d6a665"/>
+    <path d="M205,226 L250,208 M208,214 L238,201 M212,236 L252,222" stroke="#a87b3e" stroke-width="2"/>
+    <polygon points="170,206 183,186 190,206 206,196 196,214 214,214 194,224 180,218" fill="#ffcf6b" stroke="#e8551f"/>
+  </g>
+  <g><circle cx="156" cy="226" r="13" fill="#e8551f"/><text x="156" y="231" font-size="14" text-anchor="middle" fill="#fff" font-weight="700">②</text></g>
+  <text x="110" y="260" font-size="13" fill="#fff">화산재 절벽</text>
+  <text x="110" y="276" font-size="13" fill="#fff">(용머리·수월봉·송악산)</text>
+  <!-- 산방산 dome -->
+  <path d="M40,322 Q75,248 110,322 Z" fill="#a9a9b6"/>
+  <text x="75" y="242" font-size="12.5" text-anchor="middle" fill="#3a3a44" font-weight="700">산방산</text>
+  <path d="M590,196 L606,226 L622,252 L610,252 L598,230 L584,200 Z" fill="#bfe3f1"/>
+  <path d="M606,226 Q620,246 632,262" stroke="#1d7fa8" stroke-width="3" fill="none"/>
+  <g><circle cx="660" cy="232" r="13" fill="#e8551f"/><text x="660" y="237" font-size="14" text-anchor="middle" fill="#fff" font-weight="700">⑤</text></g>
+  <text x="660" y="262" font-size="13" text-anchor="middle" fill="#fff">물이 판 계곡 (안덕계곡)</text>
+  <ellipse cx="712" cy="318" rx="22" ry="5" fill="#fff"/>
+  <text x="712" y="308" font-size="12.5" text-anchor="middle" fill="#fff" font-weight="700">김녕 흰 모래</text>
+  <path d="M120,198 q8,-8 16,0 t16,0 t16,0" stroke="#fff" stroke-width="2" fill="none"/>
+</svg>
+</div>
+
+<h2><span class="no">4</span> 비유 사전 · 이것만 알면 설명이 쉬워요</h2>
+<p class="lead">어려운 말은 일상의 물건으로 바꾸면 4학년도 바로 이해해요.</p>
+<div class="grid">
+  <div class="an"><span class="big">🥤</span> <span class="t">마그마 → 흔든 탄산음료</span><br>땅속 뜨거운 돌물(마그마)에는 가스가 녹아 있어요. 뚜껑을 열면 거품이 솟는 것처럼 땅 위로 터져 나와요.</div>
+  <div class="an"><span class="big">🍯</span> <span class="t">현무암 용암 → 꿀·시럽</span><br>제주 대부분의 용암은 묽어서 멀리 흘러가요. 그래서 섬이 넓고 완만해요.</div>
+  <div class="an"><span class="big">🧴</span> <span class="t">산방산 용암 → 치약</span><br>어떤 용암은 끈적해서 멀리 못 가고 그 자리에 쌓여 높이 솟아요. 꿀(묽음) vs 치약(끈적)!</div>
+  <div class="an"><span class="big">🍞</span> <span class="t">현무암 구멍 → 빵 속 구멍</span><br>용암이 식을 때 가스 거품이 빠져나간 자리예요. 벌레가 판 구멍이 아니에요!</div>
+  <div class="an"><span class="big">🍳</span> <span class="t">수성화산 → 뜨거운 기름에 물 튀기</span><br>뜨거운 팬에 물이 닿으면 "치직! 펑!" 튀지요? 마그마가 물을 만나면 훨씬 크게 터져요. <small>(비유만! 집에서 따라 하지 않아요)</small></div>
+  <div class="an"><span class="big">🍰</span> <span class="t">화산재 층 → 시루떡·책 페이지</span><br>폭발할 때마다 화산재가 한 겹씩 쌓여요. 줄무늬 한 줄이 "폭발 일기" 한 쪽이에요.</div>
+  <div class="an"><span class="big">🧃</span> <span class="t">용암동굴 → 속이 빠져나간 빈 껍질</span><br>흐르던 용암의 겉만 먼저 굳고 속은 계속 흘러 빠져나가면 길고 텅 빈 터널이 남아요.</div>
+  <div class="an"><span class="big">🍪</span> <span class="t">김녕 흰 모래 → 부서진 조개 과자 가루</span><br>검은 돌은 화산, 하얀 모래는 조개·산호 껍데기가 부서진 가루예요. 재료가 완전히 달라요!</div>
+  <div class="an"><span class="big">🧽</span> <span class="t">침식 → 지우개질</span><br>물과 파도는 힘이 약해 보여도 수만 년 동안 지우개로 문지르듯 바위를 깎아요.</div>
+  <div class="an"><span class="big">🧂</span> <span class="t">벌집 구멍(타포니) → 소금의 힘</span><br>바닷물이 마르며 남은 소금 알갱이가 바위 틈에서 커지며 바위를 조금씩 밀어 부숴요.</div>
+</div>
+
+
+</section><section class="panel" data-g="main" id="day1" hidden><h2 id="sites"><span class="no">5</span> 탐사지별 해설 (방문 순서)</h2>
+<p class="lead">카드마다: 한 줄 요약 → 제주 이야기와 연결 → <b>⏳ 연대 옛 vs 최신</b> → <b>🔬 지질 요소</b> → 4학년 관찰 포인트 → 안전.</p>
+<!-- DAY 1 -->
+<div class="day d1">
+  <h3>📅 1일차 · 10월 10일(안)</h3>
+  <small>간조 15:36 · 용암(만장굴·김녕) → 바다 밑 층(서귀포층)</small>
+  <div class="route"><span>① 만장굴</span><i>▶</i><span>② 김녕해변</span><i>▶</i><span>③ 서귀포 패류화석층</span></div>
+</div>
+
+<div class="pills" id="bar-d1"><button class="pill on" data-g="d1" data-t="d10">① 🕳️ 만장굴</button><button class="pill" data-g="d1" data-t="d11">② 🏖️ 김녕해변</button><button class="pill" data-g="d1" data-t="d12">③ 🐚 서귀포 패류화석층</button></div><section class="panel" data-g="d1" id="d10"><div class="site">
+  <div class="top c3"><span class="num">① </span><div><h3>🕳️ 만장굴</h3><small>제주 이야기 3단계 · 흐르던 용암이 만든 거대한 빈 터널</small></div></div>
+  <div class="body">
+    <p class="one">"용암의 겉은 굳고 속은 흘러 빠져나가서 생긴 빈 길"</p>
+    <div class="row">
+      <div class="box b-link"><h4>🔗 제주 이야기와 연결</h4>섬이 자라던 시기(<b>최신 측정으로 약 8천~1만 년 전</b>, 거문오름 용암동굴계 기준), 묽은 용암이 바다 쪽으로 <b>강처럼 흘렀어요</b>. 그 용암 강 속이 비어서 지금의 동굴이 되었어요. "제주가 이렇게 자랐다"를 직접 걸어 들어가 보는 곳이에요.</div>
+      <div class="box b-an"><h4>🧃 비유</h4>치약을 길게 짜 놓은 모양에서 겉만 굳고 속이 쭉 빠진 <b>빈 껍질</b>. 석회동굴(물이 녹여 만든 동굴)과는 만드는 방법이 달라요.</div>
+    </div>
+    <div class="age"><h4>⏳ 연대: 20만~30만 년 → 8천~1만 년</h4><div class="ag"><div class="o"><small>📜 옛 설명·연구</small>K-Ar 측정으로 <b>약 20만~30만 년 전</b>. 거문오름이 한라산보다 먼저 생겼다는 보도도 있었어요.</div><div class="ar">▶</div><div class="n"><small>🔬 최신 연구</small>2016년 방사성탄소·OSL로 약 8천 년, 2021년 U-Th/He로 <b>약 9천 년(±1,800)</b> → <b>8천~1만 년 전</b>. <small>※ 거문오름 용암동굴계 전체 값이며 만장굴 단독 측정값은 아니에요.</small></div></div><p class="why"><b>왜 달라졌나?</b> K-Ar은 아주 젊은 용암을 재기 어려운 방법이에요. 정밀한 방법으로 바꾸자 수십만 년이 <b>1만 년 안쪽</b>으로 크게 내려왔어요.</p><p class="kid">🧒 4학년 말로: 만장굴은 "아주 옛날"이 아니라 한라산이 거의 완성된 뒤에 흐른 <b>젊은 용암 터널</b>이에요.</p><div class="srcs">📎 근거: <a class="btn" href="https://v.daum.net/v/kJC37NaGlL" target="_blank" rel="noopener noreferrer">[13] 거문오름계 2021 ↗</a><a class="btn" href="https://www.jeju.go.kr/geopark/park/jejuintro/volcanic.htm" target="_blank" rel="noopener noreferrer">[1] 지질공원·형성과정 ↗</a></div></div><div class="el"><h4>🔬 꼭 볼 지질 요소 — 예전 설명 vs 최신 연구</h4><div class="tw"><table><tr><th>요소</th><th>예전 설명</th><th>최신 연구 해석</th><th>현장에서 확인</th></tr><tr><td><b>용암 터널 구조</b></td><td>오래전(수십만 년) 흐른 용암이 만든 동굴</td><td>같은 동굴계가 1만 년 안쪽의 비교적 최근 용암 활동 → "활화산(1만 년 이내 분화)" 논의와 맞닿은 시기 <a class="ev" href="https://www.sciencedaily.com/releases/2014/07/140722102251.htm" target="_blank" rel="noopener noreferrer">[12]</a></td><td>벽의 가로줄(용암 수위 흔적)이 몇 줄인지</td></tr><tr><td><b>용암 석주</b></td><td>—</td><td>높이 약 7.6m의 용암석주가 대표 볼거리 <a class="ev" href="https://m.go.seoul.co.kr/news/2010/10/04/20101004800002" target="_blank" rel="noopener noreferrer">[20]</a></td><td>석주 높이를 안내판과 비교</td></tr><tr><td><b>세계유산 가치</b></td><td>—</td><td>거문오름 용암동굴계가 세계유산 등재의 근거(기준 vii·viii) <a class="ev" href="https://en.wikipedia.org/wiki/Jeju_Volcanic_Island_and_Lava_Tubes" target="_blank" rel="noopener noreferrer">[22]</a></td><td>만장굴이 "계"의 일부임을 안내판에서 찾기</td></tr></table></div><div class="srcs">📎 근거: <a class="btn" href="https://v.daum.net/v/kJC37NaGlL" target="_blank" rel="noopener noreferrer">[13] 거문오름계 2021 ↗</a><a class="btn" href="https://www.sciencedaily.com/releases/2014/07/140722102251.htm" target="_blank" rel="noopener noreferrer">[12] ScienceDaily 2014 ↗</a><a class="btn" href="https://m.go.seoul.co.kr/news/2010/10/04/20101004800002" target="_blank" rel="noopener noreferrer">[20] 지질공원 9곳 2010 ↗</a><a class="btn" href="https://en.wikipedia.org/wiki/Jeju_Volcanic_Island_and_Lava_Tubes" target="_blank" rel="noopener noreferrer">[22] 세계유산(위키) ↗</a></div></div><div class="box b-look" style="margin-top:12px"><h4><span class="eye">👀 꼭 볼 포인트</span></h4>
+      <ol class="look"><li>벽의 <b>가로줄(용암이 흐르던 높이 자국)</b> — 목욕탕 물때처럼 용암의 수위 흔적</li><li>천장에서 <b>흘러내려 굳은 용암 방울</b>(용암 종유) / 바닥의 뾰족한 <b>용암석순</b></li><li>가장 큰 <b>용암석주</b> — 높이 약 7.6m로 소개돼요(현장 안내판 확인)</li><li>동굴 안이 <b>밖보다 시원/따뜻한</b>지 체감해 보기 (연중 온도가 비슷)</li></ol></div>
+    <div class="box b-warn" style="margin-top:12px"><h4>⚠️ 안전</h4>개방 구간만 관람해요(2026년 5월 재개방 보도, 당일 운영 확인). 바닥이 울퉁불퉁하고 젖어 있어 미끄러워요. <b>동굴 벽·용암 구조물은 손대지 않아요</b>(부서지기 쉽고 한번 상하면 복구 불가). 머리 위 낮은 곳 조심, 일행 놓치지 않기.</div>
+    <details><summary>🎤 선생님 30초 멘트</summary>"우리는 지금 옛날 용암이 흐르던 길 안에 서 있어요. 벽의 줄을 보세요. 용암이 이만큼 높이까지 찼다가 빠진 자국이에요. 용암은 어디로 갔을까요? 바다 쪽으로 흘러 나갔답니다. 이따 그 바다를 만나러 가요."</details>
+  </div>
+</div>
+
+</section><section class="panel" data-g="d1" id="d11" hidden><div class="site">
+  <div class="top c7"><span class="num">② </span><div><h3>🏖️ 김녕해변</h3><small>제주 이야기 3+5단계 · 용암이 바다를 만난 곳, 그리고 하얀 조개 모래</small></div></div>
+  <div class="body">
+    <p class="one">"검은 용암 바위 옆에 하얀 모래가 있는 이유는?"</p>
+    <div class="row">
+      <div class="box b-link"><h4>🔗 제주 이야기와 연결</h4>만장굴을 만든 용암 흐름은 북쪽 바다 쪽으로 이어졌어요(어림). 바다에 닿은 용암은 <b>검은 바위 해안</b>이 되었고, 그 사이에 <b>부서진 조개·산호 조각</b>이 쌓여 하얀 모래가 되었어요. 한 해변에 "화산"과 "바다 생물"의 이야기가 함께 있어요.</div>
+      <div class="box b-an"><h4>🍪 비유</h4>검은 돌 = 화산이 구운 <b>초콜릿 쿠키</b>, 하얀 모래 = <b>조개 껍데기 과자 가루</b>. 만든 재료가 달라서 색도 달라요. 바닷물이 맑게 보이는 것도 흰 모래 덕분이에요.</div>
+    </div>
+    <div class="age"><h4>⏳ 연대: 해안 용암은 어떤 값이 맞을까?</h4><div class="ag"><div class="o"><small>📜 옛 설명·연구</small>만장굴과 같은 용암 흐름으로 보아 <b>20만~30만 년</b> 전 용암이라고 설명</div><div class="ar">▶</div><div class="n"><small>🔬 최신 연구</small>같은 거문오름 용암동굴계라면 <b>8천~1만 년 전</b>. <small>※ 김녕굴은 이 계의 구성요소로 보도됐지만, 김녕 해안 바위의 직접 측정값은 확인하지 못했어요 <span class="hyp">가설</span></small></div></div><p class="why"><b>왜 달라졌나?</b> 동굴계 연대 측정법이 바뀐 영향이에요(K-Ar → 방사성탄소·OSL·U-Th/He).</p><p class="kid">🧒 4학년 말로: 검은 바위 해안은 "생각보다 훨씬 젊은 용암"일 수 있어요!</p><div class="srcs">📎 근거: <a class="btn" href="https://v.daum.net/v/kJC37NaGlL" target="_blank" rel="noopener noreferrer">[13] 거문오름계 2021 ↗</a></div></div><div class="el"><h4>🔬 꼭 볼 지질 요소 — 예전 설명 vs 최신 연구</h4><div class="tw"><table><tr><th>요소</th><th>예전 설명</th><th>최신 연구 해석</th><th>현장에서 확인</th></tr><tr><td><b>용암이 닿은 바다</b></td><td>수십만 년 전 용암이 바다에 닿음</td><td>1만 년 안쪽이면 마지막 빙하기 뒤 해수면이 오르던 시기와 겹쳐 <b>해안선이 지금과 달랐을 수 있음</b> <span class="hyp">가설</span>. 빙하기·간빙기에 해수면이 약 130m씩 오르내렸어요 <a class="ev" href="https://www.jeju.go.kr/geopark/park/jejuintro/volcanic.htm" target="_blank" rel="noopener noreferrer">[1]</a></td><td>바위가 바닷물에 잠기는 높이와 해수면의 관계</td></tr><tr><td><b>흰 모래</b></td><td>—</td><td>조개·산호 부스러기라는 일반 해설(별도 문헌 링크 없음, 루페로 직접 확인)</td><td>모래를 루페로 보고 돌가루와 조개 조각 구분</td></tr></table></div><div class="srcs">📎 근거: <a class="btn" href="https://www.jeju.go.kr/geopark/park/jejuintro/volcanic.htm" target="_blank" rel="noopener noreferrer">[1] 지질공원·형성과정 ↗</a><a class="btn" href="https://v.daum.net/v/kJC37NaGlL" target="_blank" rel="noopener noreferrer">[13] 거문오름계 2021 ↗</a></div></div><div class="box b-look" style="margin-top:12px"><h4><span class="eye">👀 꼭 볼 포인트</span></h4>
+      <ol class="look"><li>모래를 손바닥에 놓고 <b>루페로 보기</b> → 조개·산호 조각 찾기 (돌가루와 비교)</li><li>검은 용암 바위의 <b>구멍(가스 거품 자리)</b>과 표면 모양(매끈한지 / 울퉁불퉁한지)</li><li>바위와 모래가 <b>만나는 경계선</b> 찾아 그림 그리기</li><li>물이 빠진 바위틈 <b>작은 생물</b>(관찰만!)</li></ol></div>
+    <div class="box b-warn" style="margin-top:12px"><h4>⚠️ 흔한 오해 · 안전</h4><b>하얀 모래는 화산재가 아니에요</b> — 생물 껍데기 가루예요. 용암 바위는 날카롭고 미끄러워요(맨발 금지, 신발 착용). 파도가 밀려오는 가장자리 가까이 가지 않고, 생물·모래·돌을 가져가지 않아요. 간조(10일 15:36) 전후라 바위가 드러나도 <b>물이 다시 차면 즉시 물러나요</b>.</div>
+    <details><summary>🎤 선생님 30초 멘트</summary>"방금 동굴 속 용암이 흘러 나온 곳이 이 바다 쪽이에요. 여기엔 검은 돌도, 하얀 모래도 있죠? 하얀 모래는 무엇으로 만들어졌을까요? 루페로 들여다보면 정답이 보여요. 조개 가루예요!"</details>
+  </div>
+</div>
+
+</section><section class="panel" data-g="d1" id="d12" hidden><div class="site">
+  <div class="top c0"><span class="num">③ </span><div><h3>🐚 서귀포 패류화석층</h3><small>제주 이야기 1단계 · 섬 초기, 얕은 바다에서 화산 폭발과 퇴적이 번갈아 쌓였어요</small></div></div>
+  <div class="body">
+    <p class="one">"돌 속에 조개가 있다면, 그곳은 옛날에 바다였다는 증거!"</p>
+    <div class="row">
+      <div class="box b-link"><h4>🔗 제주 이야기와 연결</h4>약 180만 년 전부터 얕은 바다에서 <b>수성화산 폭발</b>이 일어났고, 화산체가 파도에 깎여 바다 퇴적물과 번갈아 쌓이며 <b>약 100m</b> 층이 되었어요. 나중에 용암이 이 층 <b>위</b>를 덮었어요. 제주섬의 "바닥 층"이에요. 오늘 하루를 <b>"용암(나중) → 바다 밑 층(가장 먼저)"</b>으로 거꾸로 따라온 셈이에요.</div>
+      <div class="box b-an"><h4>🍰 비유</h4>화석은 조개가 돌에 남긴 <b>도장</b>이에요. 층은 바닥부터 차곡차곡 쌓은 <b>샌드위치</b>예요. 아래 층이 먼저, 위 층이 나중!</div>
+    </div>
+    <div class="age"><h4>⏳ 연대: 제3기 말 → 제4기 초(약 180만~55만 년)</h4><div class="ag"><div class="o"><small>📜 옛 설명·연구</small>1923년 요코야마가 패류 23종을 소개, 1930년 하라구치가 '서귀포층'으로 명명. 당시 가장 젊은 시대로 알던 <b>제3기 말</b>의 퇴적층으로 봄</div><div class="ar">▶</div><div class="n"><small>🔬 최신 연구</small><b>제4기 초 약 180만~55만 년</b>(지질공원 안내). 패류 77종·해수면 변동 2회 확인. 2004년 시추 연구는 서귀포층을 <b>화산쇄설성·비화산성·화석 없는 층을 모두 포함</b>하는 층서로 재정의하자고 제안</div></div><p class="why"><b>왜 달라졌나?</b> 지질시대 구분이 바뀌었고, 시추 자료로 지하 구조가 밝혀졌어요. 안내 자료에 따라 하한이 55만 년·40만 년으로 달라 <b>범위 값</b>으로 봐요.</p><p class="kid">🧒 4학년 말로: 조개 화석 층이면서 <b>화산재 층</b>이기도 해요. 바다와 화산이 번갈아 일한 흔적이에요.</p><div class="srcs">📎 근거: <a class="btn" href="https://www.seogwipo.co.kr/news/articleView.html?idxno=217242" target="_blank" rel="noopener noreferrer">[16] 서귀포층 100만년 ↗</a><a class="btn" href="https://www.jeju.go.kr/geopark/intro/fossil/intro.htm" target="_blank" rel="noopener noreferrer">[2] 지질공원·서귀포층 ↗</a><a class="btn" href="https://doi.org/10.1007/bf02910280" target="_blank" rel="noopener noreferrer">[7] Sohn&Park 2004 사계 ↗</a><a class="btn" href="https://m.go.seoul.co.kr/news/2010/10/04/20101004800002" target="_blank" rel="noopener noreferrer">[20] 지질공원 9곳 2010 ↗</a></div></div><div class="el"><h4>🔬 꼭 볼 지질 요소 — 예전 설명 vs 최신 연구</h4><div class="tw"><table><tr><th>요소</th><th>예전 설명</th><th>최신 연구 해석</th><th>현장에서 확인</th></tr><tr><td><b>화석이 든 층</b></td><td>조개 화석이 박힌 단일 바다 퇴적층</td><td>패류 외에 유공충·산호·고래뼈·상어이빨 등. 얕고 따뜻한 바다(상부는 차가운 해류 영향) <a class="ev" href="https://www.seogwipo.co.kr/news/articleView.html?idxno=217242" target="_blank" rel="noopener noreferrer">[16]</a><a class="ev" href="https://www.jeju.go.kr/geopark/intro/fossil/intro.htm" target="_blank" rel="noopener noreferrer">[2]</a></td><td>화석의 종류와 크기를 세어 보기</td></tr><tr><td><b>화산 알갱이</b></td><td>—</td><td>퇴적층 속 작은 현무암 알갱이는 당시 화산활동의 증거 <a class="ev" href="https://www.seogwipo.co.kr/news/articleView.html?idxno=217242" target="_blank" rel="noopener noreferrer">[16]</a></td><td>층 속 검은 알갱이 찾기</td></tr><tr><td><b>층의 위·아래</b></td><td>—</td><td>약 100m 두께의 층 위를 용암이 덮음, 천연기념물 제195호(1968 지정) <a class="ev" href="https://www.jeju.go.kr/geopark/intro/fossil/intro.htm" target="_blank" rel="noopener noreferrer">[2]</a><a class="ev" href="https://m.go.seoul.co.kr/news/2010/10/04/20101004800002" target="_blank" rel="noopener noreferrer">[20]</a></td><td>화석층 <u>위</u>의 검은 현무암 확인</td></tr><tr><td><b>해수면 변동</b></td><td>—</td><td>차가운 해류 동물군 출현을 빙하기 해수면 하강과 연결, 2회 변동 <a class="ev" href="https://www.seogwipo.co.kr/news/articleView.html?idxno=217242" target="_blank" rel="noopener noreferrer">[16]</a></td><td>층마다 화석이 달라지는지 비교</td></tr></table></div><div class="srcs">📎 근거: <a class="btn" href="https://www.jeju.go.kr/geopark/intro/fossil/intro.htm" target="_blank" rel="noopener noreferrer">[2] 지질공원·서귀포층 ↗</a><a class="btn" href="https://doi.org/10.1007/bf02910280" target="_blank" rel="noopener noreferrer">[7] Sohn&Park 2004 사계 ↗</a><a class="btn" href="https://www.seogwipo.co.kr/news/articleView.html?idxno=217242" target="_blank" rel="noopener noreferrer">[16] 서귀포층 100만년 ↗</a><a class="btn" href="https://m.go.seoul.co.kr/news/2010/10/04/20101004800002" target="_blank" rel="noopener noreferrer">[20] 지질공원 9곳 2010 ↗</a></div></div><div class="box b-look" style="margin-top:12px"><h4><span class="eye">👀 꼭 볼 포인트</span></h4>
+      <ol class="look"><li>돌 속에 박힌 <b>조개껍데기 모양</b> 찾기 (몇 종류인지 세어 보기)</li><li>층이 <b>가로로 겹겹이</b> 쌓인 줄무늬</li><li>이 층 <b>위</b>에 검은 현무암이 있는지 확인 → "화산이 나중에 덮었다"</li><li>김녕 모래(지금의 조개 가루)와 <b>비교</b> → 오래전 조개도 비슷하게 쌓였겠지?</li></ol></div>
+    <div class="box b-warn" style="margin-top:12px"><h4>⚠️ 흔한 오해 · 안전</h4>화석은 조개가 <b>그대로</b> 남은 게 아니라 돌처럼 바뀌거나 자국만 남은 거예요. 화석을 떼어 가면 안 돼요(보호 대상). 절벽 아래 낙석에 주의해요.</div>
+    <details><summary>🎤 선생님 30초 멘트</summary>"여러분, 여기 돌 속의 조개를 찾아볼까요? 바다에 사는 조개가 돌 속에 있다면 무슨 뜻일까요? 맞아요, 옛날엔 여기가 바다였어요. 그 위로 화산이 올라와서 제주섬이 된 거예요. 오늘은 제주의 '맨 위'에서 시작해 '맨 밑바닥'까지 내려왔어요."</details>
+  </div>
+</div>
+
+</section></section><section class="panel" data-g="main" id="day2" hidden><!-- DAY 2 -->
+<div class="day d2">
+  <h3>📅 2일차 · 10월 11일(일)</h3>
+  <small>만조 10:03 오전은 숲·오름 → 간조 16:13 오후는 바닷가 · 17:30 용머리해안 주차장 해산(안내 페이지 기준)</small>
+  <div class="route"><span>④ 안덕계곡</span><i>▶</i><span>⑤ 단산</span><i>▶</i><span>⑥ 수월봉 엉알</span><i>▶</i><span>⑦ 노을해안로 돌고래</span><i>▶</i><span>⑧ 용머리해안</span><i>▶</i><span>⑨ 산방산</span><i>▶</i><span>⑩ 송악산</span></div>
+</div>
+
+<div class="pills" id="bar-d2"><button class="pill on" data-g="d2" data-t="d20">④ 🌿 안덕계곡</button><button class="pill" data-g="d2" data-t="d21">⑤ ⛰️ 단산 (바굼지오름)</button><button class="pill" data-g="d2" data-t="d22">⑥ 📖 수월봉 엉알</button><button class="pill" data-g="d2" data-t="d23">⑦ 🐬 노을해안로 돌고래 관찰</button><button class="pill" data-g="d2" data-t="d24">⑧ 🌊 용머리해안</button><button class="pill" data-g="d2" data-t="d25">⑨ 🔔 산방산</button><button class="pill" data-g="d2" data-t="d26">⑩ 🌋 송악산</button></div><section class="panel" data-g="d2" id="d20"><div class="site">
+  <div class="top c2"><span class="num">④ </span><div><h3>🌿 안덕계곡</h3><small>제주 이야기 3+5단계 · 용암이 만든 바위를 물이 파서 만든 숲속 계곡</small></div></div>
+  <div class="body">
+    <p class="one">"단단한 용암 바위를 한 방울씩, 아주 오랜 시간 파낸 물의 작품"</p>
+    <div class="row">
+      <div class="box b-link"><h4>🔗 제주 이야기와 연결</h4>한라산에서 흘러내린 <b>용암이 쌓여 만든 현무암층</b>(3단계)을, <b>물이 오랫동안 깎아</b>(5단계) 계곡을 만들었어요. 바위층이 물을 품어 숲이 푸르게 유지돼요. <b>어제 본 만장굴(용암이 만든 길)과 오늘의 계곡(물이 만든 길)을 비교</b>해 보세요.</div>
+      <div class="box b-an"><h4>🧽 비유</h4>물은 힘센 망치가 아니라 <b>끈기 있는 지우개</b>예요. 수만 년의 "한 방울 지우개질"이 깊은 골짜기를 만들어요.</div>
+    </div>
+    <div class="age"><h4>⏳ 연대: 이 장소 단독 값은 확인하지 못했어요</h4><div class="ag"><div class="o"><small>📜 옛 설명·연구</small>용암류 연대는 K-Ar로 약 3만~90만 년 범위로 폭넓게 소개</div><div class="ar">▶</div><div class="n"><small>🔬 최신 연구</small>같은 용암도 방법에 따라 달라져요. 예) 문섬·섶섬: K-Ar 약 73만 년 → Ar-Ar <b>79.6만~82.4만 년</b>. 안덕면의 군산오름은 약 91.7만 년으로 가장 오래된 오름. <small>※ 계곡 벽 용암층의 직접 측정값은 찾지 못했어요. 현장 안내판 확인!</small></div></div><p class="why"><b>왜 달라졌나?</b> 측정법이 정밀해지며 용암류의 나이가 다시 정리되는 중이에요.</p><p class="kid">🧒 4학년 말로: 계곡 벽의 용암은 "몇 번에 걸쳐" 쌓였을 수 있어요. 층이 몇 겹인지 세어 봐요!</p><div class="srcs">📎 근거: <a class="btn" href="https://www.jeju.go.kr/geopark/park/jejuintro/volcanic.htm" target="_blank" rel="noopener noreferrer">[1] 지질공원·형성과정 ↗</a><a class="btn" href="https://www.segye.com/newsView/20260706506293" target="_blank" rel="noopener noreferrer">[18] 범섬·문섬·섶섬 ↗</a><a class="btn" href="https://jnuri.net/news/article.html?no=67479" target="_blank" rel="noopener noreferrer">[11] 제이누리 2026-03 ↗</a></div></div><div class="el"><h4>🔬 꼭 볼 지질 요소 — 예전 설명 vs 최신 연구</h4><div class="tw"><table><tr><th>요소</th><th>예전 설명</th><th>최신 연구 해석</th><th>현장에서 확인</th></tr><tr><td><b>용암층 아래 약한 층</b></td><td>계곡은 단단한 현무암이 물에 깎인 것</td><td>제주 지하에는 약한 서귀포층 위를 용암이 덮은 구조가 흔하고, 천지연은 단단한 용암 아래 약한 서귀포층이 깎여 만들어졌어요 <a class="ev" href="https://www.jeju.go.kr/geopark/intro/fossil/intro.htm" target="_blank" rel="noopener noreferrer">[2]</a><a class="ev" href="https://m.go.seoul.co.kr/news/2010/10/04/20101004800002" target="_blank" rel="noopener noreferrer">[20]</a>. 안덕계곡도 같은 원리인지는 현장 가설 <span class="hyp">가설</span></td><td>벽 아래쪽에 색·단단함이 다른 층이 있는지</td></tr><tr><td><b>용암층 겹침</b></td><td>한 번 흐른 용암</td><td>용암류는 여러 시기에 걸쳐 쌓인 것이 일반적 <a class="ev" href="https://www.jeju.go.kr/geopark/park/jejuintro/volcanic.htm" target="_blank" rel="noopener noreferrer">[1]</a></td><td>층 경계와 구멍 많은 층/치밀한 층 비교</td></tr></table></div><div class="srcs">📎 근거: <a class="btn" href="https://www.jeju.go.kr/geopark/park/jejuintro/volcanic.htm" target="_blank" rel="noopener noreferrer">[1] 지질공원·형성과정 ↗</a><a class="btn" href="https://www.jeju.go.kr/geopark/intro/fossil/intro.htm" target="_blank" rel="noopener noreferrer">[2] 지질공원·서귀포층 ↗</a><a class="btn" href="https://m.go.seoul.co.kr/news/2010/10/04/20101004800002" target="_blank" rel="noopener noreferrer">[20] 지질공원 9곳 2010 ↗</a><a class="btn" href="https://www.segye.com/newsView/20260706506293" target="_blank" rel="noopener noreferrer">[18] 범섬·문섬·섶섬 ↗</a></div></div><div class="box b-look" style="margin-top:12px"><h4><span class="eye">👀 꼭 볼 포인트</span></h4>
+      <ol class="look"><li>계곡 벽의 <b>바위층 겹침</b> — 용암이 여러 번 흘러 쌓인 흔적일까?</li><li>바위의 <b>구멍(기공) 많은 곳 vs 치밀한 곳</b> 비교 → 용암이 식는 방식이 달랐다는 단서</li><li>물이 <b>스며 나오는 틈</b>이 있는지 찾기</li><li>바위에 붙어 사는 <b>이끼·상록수</b> — 바위와 물이 숲을 키운다</li></ol></div>
+    <div class="box b-warn" style="margin-top:12px"><h4>⚠️ 안전</h4>물가 돌과 이끼는 매우 미끄러워요. 정해진 길로만 걷고, 비 온 뒤에는 물이 불어날 수 있어 가장자리에 서지 않아요. 선생님보다 앞서가지 않기!</div>
+    <details><summary>🎤 선생님 30초 멘트</summary>"이 깊은 골짜기는 누가 팠을까요? 사람도 장비도 없었는데요. 정답은 '물'이에요. 물 한 방울의 힘은 약하지만 수만 년이 쌓이면 이렇게 커져요. 바위 벽을 보면 용암이 몇 번 흘렀는지도 알 수 있어요."</details>
+  </div>
+</div>
+
+</section><section class="panel" data-g="d2" id="d21" hidden><div class="site">
+  <div class="top c4"><span class="num">⑤ </span><div><h3>⛰️ 단산 (바굼지오름)</h3><small>제주 이야기 4단계 · 제주 전체 그림을 한눈에 보는 작은 화산 전망대</small></div></div>
+  <div class="body">
+    <p class="one">"한라산 둘레에 360여 개! 오름은 저마다 따로 터진 '작은 화산'"</p>
+    <div class="row">
+      <div class="box b-link"><h4>🔗 제주 이야기와 연결</h4>큰 화산(한라산)이 자라는 동안 곁에서 <b>작은 화산(오름)</b>이 여기저기 솟았어요. 오름에 오르면 "화산섬 제주"가 어떻게 생겼는지 한눈에 보여요. 정상에서 <b>오늘 갈 산방산·송악산·용머리해안 쪽</b>을 미리 찾아봐요!</div>
+      <div class="box b-an"><h4>⛄ 비유</h4>큰 눈사람(한라산) 옆의 <b>작은 눈덩이들</b>. 오름은 한라산의 부스러기가 아니라 <b>각자 터진 독립 화산</b>이에요.</div>
+    </div>
+    <div class="age"><h4>⏳ 연대: 정밀한 절대연대는 아직 없어요</h4><div class="ag"><div class="o"><small>📜 옛 설명·연구</small>"수십만 년 전" 정도로 설명. 형성 당시에는 바닷속에 있었다고 해석</div><div class="ar">▶</div><div class="n"><small>🔬 최신 연구</small>90개 오름 연대 발표(2026)의 공개 목록에서 단산 값은 확인하지 못했어요. 세계유산본부는 <b>2028년까지 최대 200개 오름</b>을 더 밝힐 계획</div></div><p class="why"><b>왜 달라졌나?</b> 오름 연대는 지금 한창 채워지는 중이에요.</p><p class="kid">🧒 4학년 말로: 단산의 나이는 "아직 퍼즐 조각이 비어 있는" 숙제예요!</p><div class="srcs">📎 근거: <a class="btn" href="https://www.seogwipo.co.kr/news/articleView.html?idxno=219910" target="_blank" rel="noopener noreferrer">[14] 서귀포신문 2023 ↗</a><a class="btn" href="https://www.twig24.com/news/scholaship/2026/03/18/20260318500132" target="_blank" rel="noopener noreferrer">[10] 90개 오름 연대 ↗</a></div></div><div class="el"><h4>🔬 꼭 볼 지질 요소 — 예전 설명 vs 최신 연구</h4><div class="tw"><table><tr><th>요소</th><th>예전 설명</th><th>최신 연구 해석</th><th>현장에서 확인</th></tr><tr><td><b>오름의 정체</b></td><td>오름 대부분은 분석구(구멍 많은 화산 알갱이 더미)</td><td>분석구 외에 십여 개는 다른 유형. 단산은 용머리와 함께 <b>바닷속에서 만들어진 오래된 수성화산 계열</b>로 소개돼요 <a class="ev" href="https://www.jeju.go.kr/geopark/park/jejuintro/volcanic.htm" target="_blank" rel="noopener noreferrer">[1]</a><a class="ev" href="https://www.seogwipo.co.kr/news/articleView.html?idxno=219910" target="_blank" rel="noopener noreferrer">[14]</a></td><td>다른 오름과 돌·모양이 어떻게 다른지</td></tr><tr><td><b>단성화산</b></td><td>—</td><td>오름은 수주~수년의 짧은 분출로 만들어진 단성화산 <a class="ev" href="https://www.twig24.com/news/scholaship/2026/03/18/20260318500132" target="_blank" rel="noopener noreferrer">[10]</a></td><td>정상에서 보이는 오름들의 모양 비교</td></tr><tr><td><b>바다→육지</b></td><td>—</td><td>당시 바닷속 → 지금 육지. 땅과 해수면이 상대적으로 달라졌음 <a class="ev" href="https://www.seogwipo.co.kr/news/articleView.html?idxno=219910" target="_blank" rel="noopener noreferrer">[14]</a></td><td>"바닷속 화산이 왜 지금 육지에?" 질문</td></tr></table></div><div class="srcs">📎 근거: <a class="btn" href="https://www.jeju.go.kr/geopark/park/jejuintro/volcanic.htm" target="_blank" rel="noopener noreferrer">[1] 지질공원·형성과정 ↗</a><a class="btn" href="https://www.twig24.com/news/scholaship/2026/03/18/20260318500132" target="_blank" rel="noopener noreferrer">[10] 90개 오름 연대 ↗</a><a class="btn" href="https://www.seogwipo.co.kr/news/articleView.html?idxno=219910" target="_blank" rel="noopener noreferrer">[14] 서귀포신문 2023 ↗</a></div></div><div class="box b-look" style="margin-top:12px"><h4><span class="eye">👀 꼭 볼 포인트</span></h4>
+      <ol class="look"><li>정상에서 <b>한라산 방향</b> 찾기, 산방산·바다의 위치 연결해 보기</li><li>오름의 <b>둥글게 패인 곳(분화구)</b> 또는 능선 모양</li><li>길가의 <b>화산 돌·알갱이</b> 색과 구멍 관찰 (루페 사용)</li><li>"여기서 보이는 오름은 몇 개?" 세어 보기</li></ol></div>
+    <div class="box b-warn" style="margin-top:12px"><h4>⚠️ 안전 · 확인</h4>계단과 경사가 있으니 선생님 뒤에서 걸어요. 가장자리·절벽 쪽으로 가지 않아요. <small>※ 단산의 화산 종류(분출 방식)와 나이는 현장 안내판·제주 지질공원 자료로 확인해 말씀해 주세요.</small></div>
+    <details><summary>🎤 선생님 30초 멘트</summary>"여기서 사방을 둘러보세요. 이 둥근 산들이 모두 작은 화산이에요. 한라산 둘레에 360개가 넘어요. 제주는 큰 화산 하나가 아니라 수많은 화산이 모인 섬이에요."</details>
+  </div>
+</div>
+
+</section><section class="panel" data-g="d2" id="d22" hidden><div class="site">
+  <div class="top c5"><span class="num">⑥ </span><div><h3>📖 수월봉 엉알</h3><small>제주 이야기 2단계 · 화산재가 쌓은 "책 같은 절벽" · 약 1만 8천 년 전 (어림값)</small></div></div>
+  <div class="body">
+    <p class="one">"절벽 한 줄 한 줄이 화산 폭발의 일기장"</p>
+    <div class="note" style="margin:8px 0">📝 <b>엉알</b>은 제주 말로 <b>'바위 절벽(엉) 아래(알) 길'</b>이에요. 절벽을 가까이서 볼 수 있는 길이에요.</div>
+    <div class="row">
+      <div class="box b-link"><h4>🔗 제주 이야기와 연결</h4>물과 마그마가 만난 폭발이지만, 수월봉은 제주 역사에서 <b>비교적 최근</b>이에요. 그래서 층의 줄무늬가 또렷해요. 곧 만날 용머리해안(훨씬 오래됨)과 나이를 견주면 "수성화산이 제주 역사 내내 여러 번 일어났다"는 걸 알 수 있어요.</div>
+      <div class="box b-an"><h4>📖 비유</h4>두꺼운 <b>책</b>! 한 장 = 한 번의 폭발 때 날아와 쌓인 화산재. 화산탄이 떨어져 눌린 자국은 <b>이불 위에 공을 떨어뜨린 자국</b>.</div>
+    </div>
+    <div class="age"><h4>⏳ 연대: 옛 값과 최신 값이 거의 같은 안정적인 사례</h4><div class="ag"><div class="o"><small>📜 옛 설명·연구</small>2007년 OSL: <b>18.3±0.7 ka · 18.6±0.9 ka</b> (약 1만 8천 년). 아래 고산층은 23.2±1.0 ka</div><div class="ar">▶</div><div class="n"><small>🔬 최신 연구</small>2026년 세계유산본부 조사: <b>약 1만 7천 년</b>. 층 두께 최대 약 70m, 분출 심도 약 300m 이상 추정</div></div><p class="why"><b>왜 달라졌나?</b> 다른 기법으로 재도 1만 7천~1만 8천 년으로 일치해 신뢰도가 높아요. 만장굴·송악산과 대조돼요.</p><p class="kid">🧒 4학년 말로: 같은 시계로 다시 재도 비슷하면 "믿을 만한 나이"예요!</p><div class="srcs">📎 근거: <a class="btn" href="https://doi.org/10.1016/j.quageo.2006.05.002" target="_blank" rel="noopener noreferrer">[5] Cheong 2007 OSL ↗</a><a class="btn" href="https://www.twig24.com/news/scholaship/2026/03/18/20260318500132" target="_blank" rel="noopener noreferrer">[10] 90개 오름 연대 ↗</a><a class="btn" href="https://www.jeju.go.kr/geopark/intro/suweolbong/acavalue.htm" target="_blank" rel="noopener noreferrer">[3] 지질공원·수월봉 ↗</a></div></div><div class="el"><h4>🔬 꼭 볼 지질 요소 — 예전 설명 vs 최신 연구</h4><div class="tw"><table><tr><th>요소</th><th>예전 설명</th><th>최신 연구 해석</th><th>현장에서 확인</th></tr><tr><td><b>줄무늬 층</b></td><td>화산재가 쌓인 층</td><td>분출은 3단계: 초기 <b>습윤</b> 화쇄난류 → 중기 <b>건조</b> 화쇄난류 → 후기 <b>상향세립화층</b>이 여러 번 반복 <a class="ev" href="https://www.jeju.go.kr/geopark/intro/suweolbong/acavalue.htm" target="_blank" rel="noopener noreferrer">[3]</a></td><td>굵은 알갱이 층 vs 고운 층, 두께 변화</td></tr><tr><td><b>물결 구조(거대연흔)</b></td><td>—</td><td>화쇄난류(뜨거운 화산재 구름)가 남긴 구조. 화쇄난류 <b>첫 퇴적모델</b>이 여기서 나왔어요 <a class="ev" href="https://www.jeju.go.kr/geopark/intro/suweolbong/acavalue.htm" target="_blank" rel="noopener noreferrer">[3]</a></td><td>물결 모양 층을 찾아 스케치</td></tr><tr><td><b>외래 암편</b></td><td>마그마가 물을 만나 폭발</td><td>암석의 10% 이상이 외래 암편 → 아래 퇴적층을 뚫고 올라온 흔적. 지하수 폭발, 깊이 약 300m 이상 추정 <a class="ev" href="https://www.jeju.go.kr/geopark/intro/suweolbong/acavalue.htm" target="_blank" rel="noopener noreferrer">[3]</a></td><td>층 속 이질적인 돌 조각 찾기</td></tr><tr><td><b>당시의 땅</b></td><td>바닷가 절벽이니 바다 근처 폭발</td><td>당시는 <b>최종 빙하 최성기라 해수면이 훨씬 낮았고</b> 전체가 육상에서 퇴적. 화도는 지금 해안선에서 바다 쪽 수백 m <a class="ev" href="https://www.jeju.go.kr/geopark/intro/suweolbong/acavalue.htm" target="_blank" rel="noopener noreferrer">[3]</a></td><td>"지금은 바닷가, 폭발 때는 육지"를 설명해 보기</td></tr><tr><td><b>탄낭</b></td><td>화산탄이 떨어져 눌린 자국</td><td>일반 안내 해설(위 페이지에는 용어 없음) — 눌린 방향으로 날아온 쪽을 추리</td><td>층이 푹 눌린 곳과 위 돌 찾기</td></tr></table></div><div class="srcs">📎 근거: <a class="btn" href="https://www.jeju.go.kr/geopark/intro/suweolbong/acavalue.htm" target="_blank" rel="noopener noreferrer">[3] 지질공원·수월봉 ↗</a><a class="btn" href="https://doi.org/10.1016/j.quageo.2006.05.002" target="_blank" rel="noopener noreferrer">[5] Cheong 2007 OSL ↗</a><a class="btn" href="https://www.twig24.com/news/scholaship/2026/03/18/20260318500132" target="_blank" rel="noopener noreferrer">[10] 90개 오름 연대 ↗</a></div></div><div class="box b-look" style="margin-top:12px"><h4><span class="eye">👀 꼭 볼 포인트</span></h4>
+      <ol class="look"><li><b>가로줄무늬</b> — 굵은 알갱이 층 vs 고운 알갱이 층 (루페로 비교)</li><li>층이 <b>푹 눌린 곳</b>: 폭발 때 날아온 돌(화산탄)이 떨어진 자국(탄낭) — 어느 쪽에서 날아왔는지 방향 추리!</li><li>층이 <b>기울어진 방향</b>, 층이 얼마나 깨끗하게 갈라지는지</li><li>용머리해안 절벽과 <b>닮은 점·다른 점</b> 비교하기 (아래 벤다이어그램)</li></ol></div>
+    <div class="box b-warn" style="margin-top:12px"><h4>⚠️ 안전</h4>절벽 아래는 낙석과 파도 위험이 있어요. <b>절벽을 오르거나 파지 않고</b> 정해진 거리를 지켜요. 만조 때는 해안 길 접근을 피해요(11일 만조 10:03, 간조 16:13). 루페로 해를 보지 않기.</div>
+    <details><summary>🎤 선생님 30초 멘트</summary>"이 절벽은 책이에요. 한 장 한 장이 화산이 터질 때 날아와 쌓인 재예요. 여기 푹 눌린 자국 보이나요? 돌멩이가 날아와 박힌 자리예요. 어느 쪽에서 날아왔을까요? 탐정처럼 추리해 봐요."</details>
+  </div>
+</div>
+
+</section><section class="panel" data-g="d2" id="d23" hidden><div class="site">
+  <div class="top c1"><span class="num">⑦ </span><div><h3>🐬 노을해안로 돌고래 관찰</h3><small>제주 이야기 5단계 · 화산섬이 만든 바다에 사는 제주 남방큰돌고래</small></div></div>
+  <div class="body">
+    <p class="one">"화산이 만든 얕고 바위 많은 바다는 돌고래의 집이에요"</p>
+    <div class="row">
+      <div class="box b-link"><h4>🔗 제주 이야기와 연결</h4>화산이 터져 용암이 바다로 흘러 굳으면서 해안에는 <b>바위·암초와 얕은 바다</b>가 생겼어요. 제주 서쪽 바다에는 <b>남방큰돌고래</b>가 무리 지어 살아요. 땅의 이야기(지질)가 바다 생물의 이야기(생태)로 이어지는 곳이에요.</div>
+      <div class="box b-an"><h4>🏠 비유</h4>용암 바위 해안은 돌고래에게 <b>놀이터이자 식당</b>. 지질은 집의 "구조", 생물은 그 집에 사는 "가족"!</div>
+    </div>
+    <div class="age"><h4>⏳ 연대 대신: 지질과 생태를 잇는 가설</h4><p class="why">돌고래 서식지가 화산이 만든 바위 해안·얕은 바다와 이어진다는 설명은 <span class="hyp">가설</span>이에요(이 설명을 직접 뒷받침하는 문헌은 확인하지 못했어요). 확인된 사실은 이 일대(신도2리·김녕리 앞바다)가 멸종위기 제주남방큰돌고래 <b>해양생물보호구역 지정 추진</b> 대상으로 보도됐다는 점이에요(2024-10-28 보도).</p><p class="kid">🧒 4학년 말로: 화산이 만든 바다와 그곳에 사는 생물은 어떻게 이어질까? <b>질문으로 남겨 두는</b> 관찰이에요.</p><div class="srcs">📎 근거: <a class="btn" href="https://m.seoul.co.kr/news/2024/10/28/20241028500018" target="_blank" rel="noopener noreferrer">[23] 돌고래 보호구역 ↗</a></div></div><div class="box b-look" style="margin-top:12px"><h4><span class="eye">👀 꼭 볼 포인트</span></h4>
+      <ol class="look"><li>해안선의 <b>검은 용암 바위</b>와 바다 색(얕은 곳 / 깊은 곳) 비교</li><li>돌고래가 숨 쉬러 올라올 때의 <b>물보라·등지느러미</b> (쌍안경 사용)</li><li>한 번에 <b>몇 마리</b>가 보이는지, 어느 방향으로 가는지 기록</li><li>돌고래가 보이면 <b>"왜 이곳에 있을까?"</b> 질문 만들기</li></ol></div>
+    <div class="box b-warn" style="margin-top:12px"><h4>⚠️ 오해 · 안전 · 윤리</h4><b>돌고래는 물고기가 아니라 포유류</b>예요(허파로 숨 쉬어요). 야생 보호 대상이라 <b>육지에서 조용히 관찰만</b> 하고, 소리 지르기·먹이 주기·드론은 금지예요. 해안도로는 <b>차가 다니므로 갓길에 오래 서 있지 않고</b> 정해진 곳에서만 관찰해요. 만나지 못할 수도 있어요 — 야생은 약속이 없어서 더 멋져요!</div>
+    <details><summary>🎤 선생님 30초 멘트</summary>"저 멀리 물보라가 보이나요? 돌고래가 숨 쉬는 소리예요. 돌고래가 바위 많은 이 바다를 좋아하는 이유를 생각해 볼까요? 화산이 만든 땅과 바다 생물이 연결돼 있어요. 우리는 조용히, 멀리서만 만나요."</details>
+  </div>
+</div>
+
+</section><section class="panel" data-g="d2" id="d24" hidden><div class="site">
+  <div class="top c1"><span class="num">⑧ </span><div><h3>🌊 용머리해안</h3><small>제주 이야기 2+5단계 · 바닷속 화산 폭발의 기록 + 파도가 깎은 작품</small></div></div>
+  <div class="body">
+    <p class="one">"뜨거운 마그마가 바닷물을 만나 '펑!' 터져, 화산재가 쌓여 굳은 절벽"</p>
+    <div class="row">
+      <div class="box b-link"><h4>🔗 제주 이야기와 연결</h4>섬이 막 자라던 초기(<b>정확한 연대는 논쟁 중</b>), 바다 근처에서 <b>물과 마그마가 만나 폭발</b>했어요. 쌓인 화산재가 굳어 돌(응회암)이 되었고, 그 뒤 <b>파도가 깎아</b> 지금의 절벽이 되었어요. 수월봉보다 <b>훨씬 오래된</b> 화산으로 소개돼요.</div>
+      <div class="box b-an"><h4>🍰 비유</h4>줄무늬 절벽은 <b>시루떡</b>! 한 줄 = 한 번의 폭발. 벌집 구멍은 <b>소금</b>이 바위를 밀어 만든 흔적. 파도는 <b>지우개</b>.</div>
+    </div>
+    <div class="age"><h4>⏳ 연대: 120만 년 주장 vs "산방산보다 젊다"</h4><div class="ag"><div class="o"><small>📜 옛 설명·연구</small>2018 보도: <b>약 120만 년 전</b>, 제주에서 가장 오래된 화산체이며 산방산(약 80만 년)보다 먼저 만들어졌다고 설명</div><div class="ar">▶</div><div class="n"><small>🔬 최신 연구</small>2023 해석: 산방산 조면암 <u>위</u>에 용머리 응회암이 놓여 있어 <b>산방산(약 78.5만~80만 년)보다 나중</b>에 분출. 120만 년 주장은 K-Ar법과 시료 문제로 맞지 않다고 지적. <b>새 절대연대는 아직 없음</b></div></div><p class="why"><b>왜 달라졌나?</b> 같은 곳을 보고도 지층의 위아래(선후 관계)를 어떻게 읽느냐에 따라 순서가 달라졌어요. 전문가 사이에서 해석이 갈리는 <b>열린 문제</b>예요.</p><p class="kid">🧒 4학년 말로: "누가 먼저 태어났을까?" 하는 형제 싸움 같은 퀴즈! 지층의 위아래가 단서예요.</p><div class="srcs">📎 근거: <a class="btn" href="https://www.khan.co.kr/article/201804192035005" target="_blank" rel="noopener noreferrer">[15] 경향 2018 ↗</a><a class="btn" href="https://www.seogwipo.co.kr/news/articleView.html?idxno=219910" target="_blank" rel="noopener noreferrer">[14] 서귀포신문 2023 ↗</a><a class="btn" href="https://www.jeju.go.kr/geopark/intro/yongmeori/intro.htm" target="_blank" rel="noopener noreferrer">[4] 지질공원·용머리 ↗</a><a class="btn" href="https://link.springer.com/article/10.1186/s40543-024-00427-3" target="_blank" rel="noopener noreferrer">[8] Jeong 2024 지르콘 ↗</a></div></div><div class="el"><h4>🔬 꼭 볼 지질 요소 — 예전 설명 vs 최신 연구</h4><div class="tw"><table><tr><th>요소</th><th>예전 설명</th><th>최신 연구 해석</th><th>현장에서 확인</th></tr><tr><td><b>여러 화구</b></td><td>하나의 응회환</td><td>3개 지층묶음 = <b>서로 다른 3개 화구</b>. 가운데→안쪽→바깥쪽 순서로 폭발했다는 설명 <a class="ev" href="https://www.jeju.go.kr/geopark/intro/yongmeori/intro.htm" target="_blank" rel="noopener noreferrer">[4]</a><a class="ev" href="https://www.khan.co.kr/article/201804192035005" target="_blank" rel="noopener noreferrer">[15]</a></td><td>지층 기울기가 다른 구간 찾기</td></tr><tr><td><b>화구 이동</b></td><td>—</td><td>화산체가 무너져 화구가 막히면 위치가 옮겨 가며 다시 폭발 <a class="ev" href="https://www.jeju.go.kr/geopark/intro/yongmeori/intro.htm" target="_blank" rel="noopener noreferrer">[4]</a></td><td>층이 서로 다른 방향으로 기운 이유 추리</td></tr><tr><td><b>산방산과 선후</b></td><td>용머리가 먼저(2018 보도)</td><td>용머리가 나중(2023, 부정합 근거). 절대연대 미확정 <a class="ev" href="https://www.khan.co.kr/article/201804192035005" target="_blank" rel="noopener noreferrer">[15]</a><a class="ev" href="https://www.seogwipo.co.kr/news/articleView.html?idxno=219910" target="_blank" rel="noopener noreferrer">[14]</a></td><td>두 입장을 학생에게 소개하고 "필요한 증거"를 묻기</td></tr><tr><td><b>수성화산</b></td><td>—</td><td>대륙붕의 단단하지 않은 퇴적물 위에서 수성화산 활동으로 응회환 형성 <a class="ev" href="https://www.jeju.go.kr/geopark/intro/yongmeori/intro.htm" target="_blank" rel="noopener noreferrer">[4]</a></td><td>줄무늬 층과 파도에 깎인 절벽</td></tr></table></div><div class="srcs">📎 근거: <a class="btn" href="https://www.jeju.go.kr/geopark/intro/yongmeori/intro.htm" target="_blank" rel="noopener noreferrer">[4] 지질공원·용머리 ↗</a><a class="btn" href="https://www.khan.co.kr/article/201804192035005" target="_blank" rel="noopener noreferrer">[15] 경향 2018 ↗</a><a class="btn" href="https://www.seogwipo.co.kr/news/articleView.html?idxno=219910" target="_blank" rel="noopener noreferrer">[14] 서귀포신문 2023 ↗</a></div></div><div class="box b-look" style="margin-top:12px"><h4><span class="eye">👀 꼭 볼 포인트</span></h4>
+      <ol class="look"><li><b>줄무늬 층</b> 세어 보기 + 굵은 층 / 가는 층 비교 (큰 폭발? 작은 폭발?)</li><li>바위 표면의 <b>벌집 모양 구멍(타포니)</b> — 어디에 더 많은지(바닷물이 튀는 쪽?)</li><li>절벽이 <b>어떻게 깎였는지</b>(아래가 움푹, 위가 튀어나옴?)</li><li>바로 뒤의 <b>산방산</b> — 같은 곳인데 전혀 다른 돌! 다음 코스에서 비교해요</li></ol></div>
+    <div class="box b-warn" style="margin-top:12px"><h4>⚠️ 안전</h4><b>물때가 가장 중요해요.</b> 물이 차면 길이 막히고 파도가 올라와요. 11일 간조(16:13)에 맞춰 움직이고, 당일 출입 통제를 꼭 확인해요(운영 시간·통제는 당일 변경 가능). 바위가 미끄러우니 천천히 걷고, 절벽에 바짝 붙지 않아요. 바위를 떼어 가지 않아요.</div>
+    <details><summary>🎤 선생님 30초 멘트</summary>"이 절벽은 모래가 아니라 화산재가 굳은 거예요. 줄이 몇 개나 보이나요? 줄 하나가 폭발 한 번이에요. 그럼 여기서 화산은 몇 번 터졌을까요? 그리고 구멍은 누가 팠을까요? 힌트는 바닷물과 소금이에요."</details>
+  </div>
+</div>
+
+</section><section class="panel" data-g="d2" id="d25" hidden><div class="site">
+  <div class="top c6"><span class="num">⑨ </span><div><h3>🔔 산방산</h3><small>제주 이야기 4단계 · 끈적한 용암이 솟아 굳은 종 모양 산 · 약 78.5만~80만 년 전</small></div></div>
+  <div class="body">
+    <p class="one">"제주 용암이 다 묽은 건 아니에요! 끈적한 용암이 쌓여 만든 산"</p>
+    <div class="row">
+      <div class="box b-link"><h4>🔗 제주 이야기와 연결</h4>제주 대부분은 꿀처럼 묽은 현무암 용암이에요. 그런데 산방산은 <b>치약처럼 끈적한 용암</b>이 멀리 못 가고 솟아 굳은 <b>용암돔(종 모양 산)</b>이에요. 같은 마을에 용머리해안(화산재)과 산방산(끈적한 용암)이 나란히 있는 건 <b>화산마다 성격이 다르다</b>는 증거예요.</div>
+      <div class="box b-an"><h4>🧴 비유</h4>현무암 용암 = <b>꿀</b>(주르륵 퍼짐), 산방산 용암 = <b>치약</b>(짜면 쌓임). 그래서 한라산은 넓고 완만하고, 산방산은 뾰족하게 솟았어요.</div>
+    </div>
+    <div class="age"><h4>⏳ 연대: 약 80만 년 → 78.5만 년으로 정밀해졌어요</h4><div class="ag"><div class="o"><small>📜 옛 설명·연구</small>2010·2015년 보도: <b>약 80만 년 전</b> 조면암질 용암돔. 2013년 Ar-Ar 802±5 ka(Koh 외)</div><div class="ar">▶</div><div class="n"><small>🔬 최신 연구</small>2024 지르콘 U-Pb <b>785±5 ka</b> (자기 역전 경계 약 780 ka 부근). 2026 세계유산본부: <b>78.5만 년</b>. 범섬 80.4만·문섬 82.4만·섶섬 79.6만 년(Ar-Ar)</div></div><p class="why"><b>왜 달라졌나?</b> 큰 변화는 없지만 오차가 크게 줄어, 이웃 섬들과 "같은 무렵" 사건임을 비교할 수 있게 됐어요.</p><p class="kid">🧒 4학년 말로: 산방산은 혼자가 아니라 <b>서귀포 앞바다 섬들과 같은 무렵</b> 태어난 친구일지도 몰라요!</p><div class="srcs">📎 근거: <a class="btn" href="https://www.khan.co.kr/article/201506182152585/amp" target="_blank" rel="noopener noreferrer">[21] 경향 2015 산방산 ↗</a><a class="btn" href="https://link.springer.com/article/10.1186/s40543-024-00427-3" target="_blank" rel="noopener noreferrer">[8] Jeong 2024 지르콘 ↗</a><a class="btn" href="https://www.twig24.com/news/scholaship/2026/03/18/20260318500132" target="_blank" rel="noopener noreferrer">[10] 90개 오름 연대 ↗</a><a class="btn" href="https://www.segye.com/newsView/20260706506293" target="_blank" rel="noopener noreferrer">[18] 범섬·문섬·섶섬 ↗</a></div></div><div class="el"><h4>🔬 꼭 볼 지질 요소 — 예전 설명 vs 최신 연구</h4><div class="tw"><table><tr><th>요소</th><th>예전 설명</th><th>최신 연구 해석</th><th>현장에서 확인</th></tr><tr><td><b>용암돔</b></td><td>희귀한 종 모양 화산지형. 끈적한 용암이 쌓임 <a class="ev" href="https://www.khan.co.kr/article/201506182152585/amp" target="_blank" rel="noopener noreferrer">[21]</a></td><td>조면암질 용암돔 — 끈적한 용암 성격은 변함없음</td><td>현무암과 돌 색·질감 비교</td></tr><tr><td><b>줄지은 화산?</b></td><td>산방산 하나의 특이한 화산</td><td>범섬·문섬·섶섬이 거의 일직선이고 연대도 비슷 → <b>선상(線狀) 화산활동 가능성</b>을 검토 중(가능성 단계) <a class="ev" href="https://www.segye.com/newsView/20260706506293" target="_blank" rel="noopener noreferrer">[18]</a></td><td>지도에서 산방산과 섬들의 위치 맞춰 보기</td></tr><tr><td><b>숨은 돔</b></td><td>지표에 보이는 산만 생각</td><td>더데오름 지하에서 <b>산방산급 용암돔 흔적</b>(시추 109~330m 조면암 약 221m)이 확인(2026). 연대는 분석 중 <a class="ev" href="https://m.seoul.co.kr/news/2026/07/20/20260720500069" target="_blank" rel="noopener noreferrer">[17]</a></td><td>"땅속에도 산이 있다면?" 질문</td></tr></table></div><div class="srcs">📎 근거: <a class="btn" href="https://www.khan.co.kr/article/201506182152585/amp" target="_blank" rel="noopener noreferrer">[21] 경향 2015 산방산 ↗</a><a class="btn" href="https://link.springer.com/article/10.1186/s40543-024-00427-3" target="_blank" rel="noopener noreferrer">[8] Jeong 2024 지르콘 ↗</a><a class="btn" href="https://www.segye.com/newsView/20260706506293" target="_blank" rel="noopener noreferrer">[18] 범섬·문섬·섶섬 ↗</a><a class="btn" href="https://m.seoul.co.kr/news/2026/07/20/20260720500069" target="_blank" rel="noopener noreferrer">[17] 더데오름 2026 ↗</a></div></div><div class="box b-look" style="margin-top:12px"><h4><span class="eye">👀 꼭 볼 포인트</span></h4>
+      <ol class="look"><li>멀리서 본 <b>종(벨) 모양 실루엣</b> — 한라산·오름과 모양 비교</li><li>바위 <b>색과 질감</b>: 현무암(짙은 회색, 구멍 많음)과 어떻게 다른가?</li><li>절벽면의 <b>세로로 갈라진 틈</b></li><li>산 아래 <b>산방굴사 쪽 동굴</b>이 있다면 → 이것도 파도가 깎은 흔적일까? 추리</li></ol></div>
+    <div class="box b-warn" style="margin-top:12px"><h4>⚠️ 안전</h4>산 위로 오르지 않고 아래 탐방로에서 관찰해요. 절벽 아래는 낙석 위험이 있어요. 계단에서 뛰지 않기. 문화재·천연기념물 구역은 정해진 곳으로만 다녀요.</div>
+    <details><summary>🎤 선생님 30초 멘트</summary>"치약을 짜 보면 멀리 흐르지 않고 쌓이죠? 산방산이 그래요. 끈적한 용암이 땅 밖으로 밀려나와 쌓여서 이렇게 높이 솟았어요. 바로 옆 용머리해안의 줄무늬 절벽과는 만든 방법이 완전히 달라요."</details>
+  </div>
+</div>
+
+</section><section class="panel" data-g="d2" id="d26" hidden><div class="site">
+  <div class="top c5"><span class="num">⑩ </span><div><h3>🌋 송악산</h3><small>제주 이야기 2단계 · 바다 근처에서 터진 화산이 만든 이중 분화구와 해안 절벽</small></div></div>
+  <div class="body">
+    <p class="one">"바다 옆에서 두 번 터져서 분화구가 두 겹이 된 화산"</p>
+    <div class="row">
+      <div class="box b-link"><h4>🔗 제주 이야기와 연결</h4>송악산도 용머리해안·수월봉처럼 <b>마그마가 물을 만나 터진 화산</b>이에요. 해안 절벽에서 화산재 층을 볼 수 있고, 분화구가 <b>안쪽·바깥쪽 두 겹</b>이에요. 연대는 측정마다 <b>약 3.7천~7천 년 전</b>으로 달라요(아래 비교). 오늘 하루 <b>"수성화산 3형제"</b>(용머리·수월봉·송악산)를 모두 만나는 마지막 코스예요.</div>
+      <div class="box b-an"><h4>🥣 비유</h4>큰 그릇 안에 작은 그릇이 들어 있는 모양, 또는 <b>도넛 두 겹</b>. 한 번 터지고 조금 뒤에 안쪽에서 또 터져서 생겼다고 생각해 보세요.</div>
+    </div>
+    <div class="age"><h4>⏳ 연대: 7천 년 전 → 3,700년 전?</h4><div class="ag"><div class="o"><small>📜 옛 설명·연구</small>2003: 패각 ¹⁴C로 응회환 직후 퇴적층(하모리층)이 <b>약 4천 년 전 이후</b>. 2007 OSL: <b>7.0±0.3 ka</b>(제주 홀로세 화산활동의 첫 직접 연대). 2014 보도도 "가장 최근 분화=약 7천 년 전 송악산"으로 소개</div><div class="ar">▶</div><div class="n"><small>🔬 최신 연구</small>2026 세계유산본부: 송악산 <b>약 3,700년 전</b>(오름 가운데 돌오름 2천 년 다음으로 젊음). 지질공원은 "수천 년 전, 마지막 수성화산"으로 안내</div></div><p class="why"><b>왜 달라졌나?</b> 같은 화산인데 값이 2배 가까이 달라요. <b>측정 대상(석영 입자·패각 등)과 방법이 다르기 때문일 수 있으나</b> 기사에는 사유가 없어요. 세계유산본부도 일부 조정 가능성을 언급했어요.</p><p class="kid">🧒 4학년 말로: "몇 년 전?"이 정확히 하나가 아닐 수도 있어요. 그래서 과학자들은 <b>여러 시계로 교차 확인</b>해요.</p><div class="srcs">📎 근거: <a class="btn" href="https://doi.org/10.1016/j.quageo.2006.05.002" target="_blank" rel="noopener noreferrer">[5] Cheong 2007 OSL ↗</a><a class="btn" href="https://doi.org/10.1016/S0377-0273(02)00302-5" target="_blank" rel="noopener noreferrer">[6] Sohn 2003 송악산 ↗</a><a class="btn" href="https://www.twig24.com/news/scholaship/2026/03/18/20260318500132" target="_blank" rel="noopener noreferrer">[10] 90개 오름 연대 ↗</a><a class="btn" href="https://jnuri.net/news/article.html?no=67479" target="_blank" rel="noopener noreferrer">[11] 제이누리 2026-03 ↗</a><a class="btn" href="https://www.sciencedaily.com/releases/2014/07/140722102251.htm" target="_blank" rel="noopener noreferrer">[12] ScienceDaily 2014 ↗</a><a class="btn" href="https://www.jeju.go.kr/geopark/park/jejuintro/volcanic.htm" target="_blank" rel="noopener noreferrer">[1] 지질공원·형성과정 ↗</a></div></div><div class="el"><h4>🔬 꼭 볼 지질 요소 — 예전 설명 vs 최신 연구</h4><div class="tw"><table><tr><th>요소</th><th>예전 설명</th><th>최신 연구 해석</th><th>현장에서 확인</th></tr><tr><td><b>여러 단계의 분출</b></td><td>한 번의 폭발</td><td>응회환 형성 후에도 <b>스코리아 I → 조면현무암 용암 → 스코리아 II → 후기 응회암</b>이 이어짐 <a class="ev" href="https://doi.org/10.1016/S0377-0273(02)00302-5" target="_blank" rel="noopener noreferrer">[6]</a></td><td>분화구 벽에서 알갱이 굵기·색 변화</td></tr><tr><td><b>하모리층</b></td><td>—</td><td>분화 직후 파도가 화산재를 다시 옮겨 쌓은 응회질 사암·자갈 사암, 해발 약 4m까지 <a class="ev" href="https://doi.org/10.1016/S0377-0273(02)00302-5" target="_blank" rel="noopener noreferrer">[6]</a></td><td>해안 가까운 층리 있는 사암 같은 층</td></tr><tr><td><b>왜 바닷가에서?</b></td><td>—</td><td>홀로세 해수면 상승으로 연안이 물에 충분히 포화되어 수성화산 폭발이 가능해졌다는 해석 <a class="ev" href="https://doi.org/10.1016/S0377-0273(02)00302-5" target="_blank" rel="noopener noreferrer">[6]</a></td><td>"바다 가까워야 하는 이유" 질문</td></tr></table></div><div class="srcs">📎 근거: <a class="btn" href="https://doi.org/10.1016/S0377-0273(02)00302-5" target="_blank" rel="noopener noreferrer">[6] Sohn 2003 송악산 ↗</a><a class="btn" href="https://www.jeju.go.kr/geopark/park/jejuintro/volcanic.htm" target="_blank" rel="noopener noreferrer">[1] 지질공원·형성과정 ↗</a><a class="btn" href="https://doi.org/10.1016/j.quageo.2006.05.002" target="_blank" rel="noopener noreferrer">[5] Cheong 2007 OSL ↗</a></div></div><div class="box b-look" style="margin-top:12px"><h4><span class="eye">👀 꼭 볼 포인트</span></h4>
+      <ol class="look"><li><b>분화구가 몇 겹</b>으로 보이는지 확인하고 그림으로 그리기</li><li>해안 절벽의 <b>화산재 줄무늬</b> — 용머리·수월봉과 닮았나?</li><li>바다 너머 <b>가파도·마라도</b> 같은 섬 찾기 (화산이 만든 섬들이에요)</li><li>해안 절벽에 뚫린 <b>사람이 만든 동굴 구멍</b>(역사 흔적) — 자연 동굴(만장굴)과 모양·크기 비교</li></ol></div>
+    <div class="box b-warn" style="margin-top:12px"><h4>⚠️ 안전</h4>둘레길은 <b>절벽 가장자리가 가까워요</b>. 정해진 길로만, 가장자리에서 한 걸음 이상 떨어져 걷기. 바람이 강한 날이 많아 모자·소지품 주의. 분화구 안쪽 등 <b>출입 제한 구역</b>이 있을 수 있으니 안내 표지를 따라요. 마지막 코스이므로 해산 시간(17:30)에 맞춰 이동해요.</div>
+    <details><summary>🎤 선생님 30초 멘트</summary>"오늘 만난 화산을 정리해 볼까요? 용머리해안, 수월봉, 그리고 지금 서 있는 송악산. 셋 다 물을 만나 터진 화산이에요. 송악산은 분화구가 두 겹이라는 점이 특별해요. 우리 눈으로 한 번 세어 봐요!"</details>
+  </div>
+</div>
+
+</section></section><section class="panel" data-g="main" id="venn" hidden><h2 id="venn"><span class="no">★</span> 서로 연결되는 부분 · 벤다이어그램 11종</h2><p class="lead">버튼을 눌러 한 장씩 넘겨 보세요. 같은 점과 다른 점으로 제주의 이야기가 이어져요. (연대는 본문의 최신 근거 기준)</p><div class="pills" id="bar-venn"><button class="pill on" data-g="venn" data-t="v0">수월봉 vs 용머리</button><button class="pill" data-g="venn" data-t="v1">마그마 + 물</button><button class="pill" data-g="venn" data-t="v2">꿀 vs 치약</button><button class="pill" data-g="venn" data-t="v3">수성화산 3형제</button><button class="pill" data-g="venn" data-t="v4">산방산 vs 용머리</button><button class="pill" data-g="venn" data-t="v5">만장굴 vs 안덕계곡</button><button class="pill" data-g="venn" data-t="v6">김녕 검정 vs 흰색</button><button class="pill" data-g="venn" data-t="v7">해수면과 폭발</button><button class="pill" data-g="venn" data-t="v8">옛 측정 vs 새 측정</button><button class="pill" data-g="venn" data-t="v9">서귀포층 vs 용암층</button><button class="pill" data-g="venn" data-t="v10">탐정 순서도</button></div><section class="panel" data-g="venn" id="v0"><div class="svgbox vbox"><svg viewBox="0 0 640 370" role="img" aria-label="📖 수월봉 와 🌊 용머리해안 벤다이어그램"><circle cx="235" cy="205" r="150" fill="#c0505f" opacity=".28" stroke="#c0505f" stroke-width="2"/><circle cx="405" cy="205" r="150" fill="#1d7fa8" opacity=".28" stroke="#1d7fa8" stroke-width="2"/><text x="170" y="26" font-size="20" font-weight="800" text-anchor="middle" fill="#23232b">📖 수월봉</text><text x="470" y="26" font-size="20" font-weight="800" text-anchor="middle" fill="#23232b">🌊 용머리해안</text><text x="170" y="133" font-size="16.5" text-anchor="middle" fill="#23232b">약</text><text x="170" y="157" font-size="16.5" text-anchor="middle" fill="#23232b">1.7만~1.8만</text><text x="170" y="182" font-size="16.5" text-anchor="middle" fill="#23232b">년</text><text x="170" y="214" font-size="16.5" text-anchor="middle" fill="#23232b">가는 줄무늬 층</text><text x="170" y="246" font-size="16.5" text-anchor="middle" fill="#23232b">당시엔 육지</text><text x="170" y="277" font-size="16.5" text-anchor="middle" fill="#23232b">지하수 폭발</text><text x="470" y="157" font-size="16.5" text-anchor="middle" fill="#23232b">연대 논쟁 중</text><text x="470" y="189" font-size="16.5" text-anchor="middle" fill="#23232b">3개 화구</text><text x="470" y="221" font-size="16.5" text-anchor="middle" fill="#23232b">대륙붕 퇴적물 위</text><text x="470" y="253" font-size="16.5" text-anchor="middle" fill="#23232b">파도 깎임 뚜렷</text><text x="320" y="133" font-size="15.5" text-anchor="middle" fill="#23232b" font-weight="800">공통점</text><text x="320" y="163" font-size="15.5" text-anchor="middle" fill="#23232b">물+마그마 폭발</text><text x="320" y="193" font-size="15.5" text-anchor="middle" fill="#23232b">수성화산</text><text x="320" y="224" font-size="15.5" text-anchor="middle" fill="#23232b">화산재가 굳은</text><text x="320" y="247" font-size="15.5" text-anchor="middle" fill="#23232b">층</text><text x="320" y="277" font-size="15.5" text-anchor="middle" fill="#23232b">바닷가 절벽</text></svg></div><p class="vfoot"><b>수월봉과 용머리해안: 같은 수성화산, 다른 사연</b> </p><p class="kid">🧒 두 절벽 모두 "물을 만난 폭발"인데, 나이와 폭발 장소가 달라요. 줄무늬를 비교해 봐요!</p><div class="srcs">📎 근거: <a class="btn" href="https://www.jeju.go.kr/geopark/intro/suweolbong/acavalue.htm" target="_blank" rel="noopener noreferrer">[3] 지질공원·수월봉 ↗</a><a class="btn" href="https://doi.org/10.1016/j.quageo.2006.05.002" target="_blank" rel="noopener noreferrer">[5] Cheong 2007 OSL ↗</a><a class="btn" href="https://www.twig24.com/news/scholaship/2026/03/18/20260318500132" target="_blank" rel="noopener noreferrer">[10] 90개 오름 연대 ↗</a><a class="btn" href="https://www.jeju.go.kr/geopark/intro/yongmeori/intro.htm" target="_blank" rel="noopener noreferrer">[4] 지질공원·용머리 ↗</a><a class="btn" href="https://www.seogwipo.co.kr/news/articleView.html?idxno=219910" target="_blank" rel="noopener noreferrer">[14] 서귀포신문 2023 ↗</a></div></section><section class="panel" data-g="venn" id="v1" hidden><div class="svgbox vbox"><svg viewBox="0 0 640 370" role="img" aria-label="🔥 마그마·용암 와 💧 바닷물·지하수 벤다이어그램"><circle cx="235" cy="205" r="150" fill="#e8551f" opacity=".28" stroke="#e8551f" stroke-width="2"/><circle cx="405" cy="205" r="150" fill="#1d7fa8" opacity=".28" stroke="#1d7fa8" stroke-width="2"/><text x="170" y="26" font-size="20" font-weight="800" text-anchor="middle" fill="#23232b">🔥 마그마·용암</text><text x="470" y="26" font-size="20" font-weight="800" text-anchor="middle" fill="#23232b">💧 바닷물·지하수</text><text x="170" y="173" font-size="16.5" text-anchor="middle" fill="#23232b">땅속 뜨거운 돌물</text><text x="170" y="205" font-size="16.5" text-anchor="middle" fill="#23232b">가스가 들어 있음</text><text x="170" y="237" font-size="16.5" text-anchor="middle" fill="#23232b">→ 만장굴·한라산</text><text x="470" y="173" font-size="16.5" text-anchor="middle" fill="#23232b">차갑고 많은 물</text><text x="470" y="205" font-size="16.5" text-anchor="middle" fill="#23232b">바다·땅속 물</text><text x="470" y="237" font-size="16.5" text-anchor="middle" fill="#23232b">→ 파도·계곡</text><text x="320" y="144" font-size="15.5" text-anchor="middle" fill="#23232b" font-weight="800">둘이 만나면 💥</text><text x="320" y="175" font-size="15.5" text-anchor="middle" fill="#23232b">펑! 화산재</text><text x="320" y="205" font-size="15.5" text-anchor="middle" fill="#23232b">수월봉</text><text x="320" y="235" font-size="15.5" text-anchor="middle" fill="#23232b">용머리</text><text x="320" y="266" font-size="15.5" text-anchor="middle" fill="#23232b">송악산</text></svg></div><p class="vfoot"><b>마그마가 물을 만나면?</b> </p><p class="kid">🧒 만나면 "펑!", 안 만나면 "주르륵". 이 차이가 두 가지 풍경(화산재 절벽 vs 용암 동굴)을 갈랐어요.</p><div class="srcs">📎 근거: <a class="btn" href="https://www.jeju.go.kr/geopark/park/jejuintro/volcanic.htm" target="_blank" rel="noopener noreferrer">[1] 지질공원·형성과정 ↗</a><a class="btn" href="https://www.jeju.go.kr/geopark/intro/suweolbong/acavalue.htm" target="_blank" rel="noopener noreferrer">[3] 지질공원·수월봉 ↗</a><a class="btn" href="https://www.jeju.go.kr/geopark/intro/yongmeori/intro.htm" target="_blank" rel="noopener noreferrer">[4] 지질공원·용머리 ↗</a><a class="btn" href="https://doi.org/10.1016/S0377-0273(02)00302-5" target="_blank" rel="noopener noreferrer">[6] Sohn 2003 송악산 ↗</a></div></section><section class="panel" data-g="venn" id="v2" hidden><div class="svgbox vbox"><svg viewBox="0 0 640 370" role="img" aria-label="🍯 현무암 용암 와 🧴 산방산 용암 벤다이어그램"><circle cx="235" cy="205" r="150" fill="#55555e" opacity=".28" stroke="#55555e" stroke-width="2"/><circle cx="405" cy="205" r="150" fill="#8aa0bd" opacity=".28" stroke="#8aa0bd" stroke-width="2"/><text x="170" y="26" font-size="20" font-weight="800" text-anchor="middle" fill="#23232b">🍯 현무암 용암</text><text x="470" y="26" font-size="20" font-weight="800" text-anchor="middle" fill="#23232b">🧴 산방산 용암</text><text x="170" y="157" font-size="16.5" text-anchor="middle" fill="#23232b">묽고 잘 흘러요</text><text x="170" y="189" font-size="16.5" text-anchor="middle" fill="#23232b">넓고 완만한 산</text><text x="170" y="221" font-size="16.5" text-anchor="middle" fill="#23232b">구멍 많은 검은 돌</text><text x="170" y="253" font-size="16.5" text-anchor="middle" fill="#23232b">한라산·만장굴</text><text x="470" y="157" font-size="16.5" text-anchor="middle" fill="#23232b">끈적해서 쌓여요</text><text x="470" y="189" font-size="16.5" text-anchor="middle" fill="#23232b">종 모양으로 솟음</text><text x="470" y="221" font-size="16.5" text-anchor="middle" fill="#23232b">밝은 회색 돌</text><text x="470" y="253" font-size="16.5" text-anchor="middle" fill="#23232b">산방산</text><text x="320" y="148" font-size="15.5" text-anchor="middle" fill="#23232b" font-weight="800">공통점</text><text x="320" y="178" font-size="15.5" text-anchor="middle" fill="#23232b">땅속 마그마</text><text x="320" y="208" font-size="15.5" text-anchor="middle" fill="#23232b">식어서 굳은 돌</text><text x="320" y="239" font-size="15.5" text-anchor="middle" fill="#23232b">제주를 만든</text><text x="320" y="262" font-size="15.5" text-anchor="middle" fill="#23232b">화산</text></svg></div><p class="vfoot"><b>현무암 용암(꿀) vs 산방산 용암(치약)</b> </p><p class="kid">🧒 같은 화산인데 끈적함(점성)이 산 모양을 정해요.</p><div class="srcs">📎 근거: <a class="btn" href="https://www.khan.co.kr/article/201506182152585/amp" target="_blank" rel="noopener noreferrer">[21] 경향 2015 산방산 ↗</a><a class="btn" href="https://link.springer.com/article/10.1186/s40543-024-00427-3" target="_blank" rel="noopener noreferrer">[8] Jeong 2024 지르콘 ↗</a><a class="btn" href="https://www.jeju.go.kr/geopark/park/jejuintro/volcanic.htm" target="_blank" rel="noopener noreferrer">[1] 지질공원·형성과정 ↗</a></div></section><section class="panel" data-g="venn" id="v3" hidden><div class="svgbox vbox"><svg viewBox="0 0 640 480" role="img" aria-label="세 화산 벤다이어그램"><circle cx="235" cy="190" r="130" fill="#c0505f" opacity=".25" stroke="#c0505f" stroke-width="2"/><circle cx="405" cy="190" r="130" fill="#1d7fa8" opacity=".25" stroke="#1d7fa8" stroke-width="2"/><circle cx="320" cy="310" r="130" fill="#7a5fb0" opacity=".25" stroke="#7a5fb0" stroke-width="2"/><text x="170" y="34" font-size="20" font-weight="800" text-anchor="middle">📖 수월봉</text><text x="470" y="34" font-size="20" font-weight="800" text-anchor="middle">🌊 용머리해안</text><text x="320" y="470" font-size="20" font-weight="800" text-anchor="middle">🌋 송악산</text><text x="185" y="132" font-size="15.5" text-anchor="middle" fill="#23232b">약 1.7~1.8만</text><text x="185" y="155" font-size="15.5" text-anchor="middle" fill="#23232b">년</text><text x="185" y="185" font-size="15.5" text-anchor="middle" fill="#23232b">육상에서 지하수</text><text x="185" y="208" font-size="15.5" text-anchor="middle" fill="#23232b">폭발</text><text x="185" y="238" font-size="15.5" text-anchor="middle" fill="#23232b">3단계 분출층</text><text x="455" y="155" font-size="15.5" text-anchor="middle" fill="#23232b">연대 논쟁 중</text><text x="455" y="185" font-size="15.5" text-anchor="middle" fill="#23232b">3개 화구</text><text x="455" y="215" font-size="15.5" text-anchor="middle" fill="#23232b">대륙붕 퇴적물 위</text><text x="320" y="226" font-size="14" text-anchor="middle" fill="#23232b" font-weight="800">물+마그마</text><text x="320" y="250" font-size="14" text-anchor="middle" fill="#23232b">폭발!</text><text x="320" y="355" font-size="15.5" text-anchor="middle" fill="#23232b">약 3.7천~7천 년</text><text x="320" y="385" font-size="15.5" text-anchor="middle" fill="#23232b">분화구 안 다단계</text><text x="320" y="415" font-size="15.5" text-anchor="middle" fill="#23232b">하모리층</text></svg></div><p class="vfoot"><b>수월봉·용머리·송악산</b> (가운데: 세 곳의 공통점)</p><p class="kid">🧒 셋은 모두 응회환을 만든 수성화산이에요. 폭발 시기와 장소가 달라 층 모양도 달라요. 가장 닮은 점과 다른 점은?</p><div class="srcs">📎 근거: <a class="btn" href="https://www.jeju.go.kr/geopark/intro/suweolbong/acavalue.htm" target="_blank" rel="noopener noreferrer">[3] 지질공원·수월봉 ↗</a><a class="btn" href="https://www.jeju.go.kr/geopark/intro/yongmeori/intro.htm" target="_blank" rel="noopener noreferrer">[4] 지질공원·용머리 ↗</a><a class="btn" href="https://doi.org/10.1016/S0377-0273(02)00302-5" target="_blank" rel="noopener noreferrer">[6] Sohn 2003 송악산 ↗</a><a class="btn" href="https://doi.org/10.1016/j.quageo.2006.05.002" target="_blank" rel="noopener noreferrer">[5] Cheong 2007 OSL ↗</a></div></section><section class="panel" data-g="venn" id="v4" hidden><div class="svgbox vbox"><svg viewBox="0 0 640 370" role="img" aria-label="🔔 산방산 와 🌊 용머리해안 벤다이어그램"><circle cx="235" cy="205" r="150" fill="#8aa0bd" opacity=".28" stroke="#8aa0bd" stroke-width="2"/><circle cx="405" cy="205" r="150" fill="#1d7fa8" opacity=".28" stroke="#1d7fa8" stroke-width="2"/><text x="170" y="26" font-size="20" font-weight="800" text-anchor="middle" fill="#23232b">🔔 산방산</text><text x="470" y="26" font-size="20" font-weight="800" text-anchor="middle" fill="#23232b">🌊 용머리해안</text><text x="170" y="133" font-size="16.5" text-anchor="middle" fill="#23232b">조면암질 용암돔</text><text x="170" y="164" font-size="16.5" text-anchor="middle" fill="#23232b">끈적한 용암</text><text x="170" y="196" font-size="16.5" text-anchor="middle" fill="#23232b">약</text><text x="170" y="221" font-size="16.5" text-anchor="middle" fill="#23232b">78.5만~80만</text><text x="170" y="246" font-size="16.5" text-anchor="middle" fill="#23232b">년</text><text x="170" y="277" font-size="16.5" text-anchor="middle" fill="#23232b">높이 395m</text><text x="470" y="133" font-size="16.5" text-anchor="middle" fill="#23232b">응회환(화산재)</text><text x="470" y="164" font-size="16.5" text-anchor="middle" fill="#23232b">수성화산</text><text x="470" y="196" font-size="16.5" text-anchor="middle" fill="#23232b">연대 미확정</text><text x="470" y="228" font-size="16.5" text-anchor="middle" fill="#23232b">120만 년 주장</text><text x="470" y="253" font-size="16.5" text-anchor="middle" fill="#23232b">vs 더 젊다는</text><text x="470" y="277" font-size="16.5" text-anchor="middle" fill="#23232b">해석</text><text x="320" y="133" font-size="15.5" text-anchor="middle" fill="#23232b" font-weight="800">공통점</text><text x="320" y="163" font-size="15.5" text-anchor="middle" fill="#23232b">사계리 이웃</text><text x="320" y="193" font-size="15.5" text-anchor="middle" fill="#23232b">한라산 용암보다</text><text x="320" y="217" font-size="15.5" text-anchor="middle" fill="#23232b">먼저</text><text x="320" y="247" font-size="15.5" text-anchor="middle" fill="#23232b">만들어짐</text><text x="320" y="277" font-size="15.5" text-anchor="middle" fill="#23232b">선후는 논쟁 중</text></svg></div><p class="vfoot"><b>이웃 사이, "누가 먼저?" 논쟁</b> </p><p class="kid">🧒 지층의 위·아래를 보면 누가 먼저인지 알 수 있어요. 어떤 증거가 더 필요할까요?</p><div class="srcs">📎 근거: <a class="btn" href="https://www.jeju.go.kr/geopark/intro/yongmeori/intro.htm" target="_blank" rel="noopener noreferrer">[4] 지질공원·용머리 ↗</a><a class="btn" href="https://www.seogwipo.co.kr/news/articleView.html?idxno=219910" target="_blank" rel="noopener noreferrer">[14] 서귀포신문 2023 ↗</a><a class="btn" href="https://www.khan.co.kr/article/201804192035005" target="_blank" rel="noopener noreferrer">[15] 경향 2018 ↗</a><a class="btn" href="https://link.springer.com/article/10.1186/s40543-024-00427-3" target="_blank" rel="noopener noreferrer">[8] Jeong 2024 지르콘 ↗</a><a class="btn" href="https://www.khan.co.kr/article/201506182152585/amp" target="_blank" rel="noopener noreferrer">[21] 경향 2015 산방산 ↗</a></div></section><section class="panel" data-g="venn" id="v5" hidden><div class="svgbox vbox"><svg viewBox="0 0 640 370" role="img" aria-label="🕳️ 만장굴 와 🌿 안덕계곡 벤다이어그램"><circle cx="235" cy="205" r="150" fill="#44444d" opacity=".28" stroke="#44444d" stroke-width="2"/><circle cx="405" cy="205" r="150" fill="#2f7a4a" opacity=".28" stroke="#2f7a4a" stroke-width="2"/><text x="170" y="26" font-size="20" font-weight="800" text-anchor="middle" fill="#23232b">🕳️ 만장굴</text><text x="470" y="26" font-size="20" font-weight="800" text-anchor="middle" fill="#23232b">🌿 안덕계곡</text><text x="170" y="145" font-size="16.5" text-anchor="middle" fill="#23232b">용암이 흘러 만듦</text><text x="170" y="177" font-size="16.5" text-anchor="middle" fill="#23232b">속이 빈 터널</text><text x="170" y="208" font-size="16.5" text-anchor="middle" fill="#23232b">8천~1만</text><text x="170" y="233" font-size="16.5" text-anchor="middle" fill="#23232b">년(동굴계)</text><text x="170" y="265" font-size="16.5" text-anchor="middle" fill="#23232b">세계유산 구성요소</text><text x="470" y="145" font-size="16.5" text-anchor="middle" fill="#23232b">물이 오래 깎음</text><text x="470" y="177" font-size="16.5" text-anchor="middle" fill="#23232b">깊은 골짜기</text><text x="470" y="208" font-size="16.5" text-anchor="middle" fill="#23232b">단독 연대 없음</text><text x="470" y="240" font-size="16.5" text-anchor="middle" fill="#23232b">수만 년 이상</text><text x="470" y="265" font-size="16.5" text-anchor="middle" fill="#23232b">작업(일반 해설)</text><text x="320" y="160" font-size="15.5" text-anchor="middle" fill="#23232b" font-weight="800">공통점</text><text x="320" y="190" font-size="15.5" text-anchor="middle" fill="#23232b">재료는 현무암</text><text x="320" y="220" font-size="15.5" text-anchor="middle" fill="#23232b">비어 있는 길</text><text x="320" y="250" font-size="15.5" text-anchor="middle" fill="#23232b">시간의 작품</text></svg></div><p class="vfoot"><b>용암이 판 길 vs 물이 판 길</b> </p><p class="kid">🧒 둘 다 "길"인데 만든 주인이 달라요. 용암 vs 물, 누가 더 빨리 만들었을까요?</p><div class="srcs">📎 근거: <a class="btn" href="https://v.daum.net/v/kJC37NaGlL" target="_blank" rel="noopener noreferrer">[13] 거문오름계 2021 ↗</a><a class="btn" href="https://www.jeju.go.kr/geopark/park/jejuintro/volcanic.htm" target="_blank" rel="noopener noreferrer">[1] 지질공원·형성과정 ↗</a><a class="btn" href="https://en.wikipedia.org/wiki/Jeju_Volcanic_Island_and_Lava_Tubes" target="_blank" rel="noopener noreferrer">[22] 세계유산(위키) ↗</a></div></section><section class="panel" data-g="venn" id="v6" hidden><div class="svgbox vbox"><svg viewBox="0 0 640 370" role="img" aria-label="⬛ 검은 바위 와 ⬜ 하얀 모래 벤다이어그램"><circle cx="235" cy="205" r="150" fill="#33333b" opacity=".28" stroke="#33333b" stroke-width="2"/><circle cx="405" cy="205" r="150" fill="#c9a46b" opacity=".28" stroke="#c9a46b" stroke-width="2"/><text x="170" y="26" font-size="20" font-weight="800" text-anchor="middle" fill="#23232b">⬛ 검은 바위</text><text x="470" y="26" font-size="20" font-weight="800" text-anchor="middle" fill="#23232b">⬜ 하얀 모래</text><text x="170" y="148" font-size="16.5" text-anchor="middle" fill="#23232b">화산이 만듦</text><text x="170" y="180" font-size="16.5" text-anchor="middle" fill="#23232b">구멍·거친 면</text><text x="170" y="212" font-size="16.5" text-anchor="middle" fill="#23232b">같은 용암계라면</text><text x="170" y="237" font-size="16.5" text-anchor="middle" fill="#23232b">8천~1만</text><text x="170" y="262" font-size="16.5" text-anchor="middle" fill="#23232b">년(가설)</text><text x="470" y="161" font-size="16.5" text-anchor="middle" fill="#23232b">생물 가루</text><text x="470" y="193" font-size="16.5" text-anchor="middle" fill="#23232b">조개·산호 조각</text><text x="470" y="224" font-size="16.5" text-anchor="middle" fill="#23232b">루페로 확인(일반</text><text x="470" y="249" font-size="16.5" text-anchor="middle" fill="#23232b">해설)</text><text x="320" y="175" font-size="15.5" text-anchor="middle" fill="#23232b" font-weight="800">공통점</text><text x="320" y="205" font-size="15.5" text-anchor="middle" fill="#23232b">바닷가에서</text><text x="320" y="235" font-size="15.5" text-anchor="middle" fill="#23232b">한자리에 만나요</text></svg></div><p class="vfoot"><b>검은 용암 바위와 하얀 모래</b> </p><p class="kid">🧒 하얀 모래는 화산재가 아니에요! 루페로 보고 정말 조개 조각인지 확인해 봐요.</p><div class="srcs">📎 근거: <a class="btn" href="https://v.daum.net/v/kJC37NaGlL" target="_blank" rel="noopener noreferrer">[13] 거문오름계 2021 ↗</a></div></section><section class="panel" data-g="venn" id="v7" hidden><div class="svgbox vbox"><svg viewBox="0 0 640 370" role="img" aria-label="📖 수월봉 와 🌋 송악산 벤다이어그램"><circle cx="235" cy="205" r="150" fill="#c0505f" opacity=".28" stroke="#c0505f" stroke-width="2"/><circle cx="405" cy="205" r="150" fill="#7a5fb0" opacity=".28" stroke="#7a5fb0" stroke-width="2"/><text x="170" y="26" font-size="20" font-weight="800" text-anchor="middle" fill="#23232b">📖 수월봉</text><text x="470" y="26" font-size="20" font-weight="800" text-anchor="middle" fill="#23232b">🌋 송악산</text><text x="170" y="145" font-size="16.5" text-anchor="middle" fill="#23232b">약 1.7~1.8만</text><text x="170" y="170" font-size="16.5" text-anchor="middle" fill="#23232b">년</text><text x="170" y="202" font-size="16.5" text-anchor="middle" fill="#23232b">최종 빙하 최성기</text><text x="170" y="233" font-size="16.5" text-anchor="middle" fill="#23232b">해수면 훨씬 낮음</text><text x="170" y="265" font-size="16.5" text-anchor="middle" fill="#23232b">육상에서 퇴적</text><text x="470" y="145" font-size="16.5" text-anchor="middle" fill="#23232b">약 3.7천~7천</text><text x="470" y="170" font-size="16.5" text-anchor="middle" fill="#23232b">년</text><text x="470" y="202" font-size="16.5" text-anchor="middle" fill="#23232b">홀로세 해수면 상승</text><text x="470" y="233" font-size="16.5" text-anchor="middle" fill="#23232b">연안이 물에 젖음</text><text x="470" y="265" font-size="16.5" text-anchor="middle" fill="#23232b">바닷가 응회환</text><text x="320" y="160" font-size="15.5" text-anchor="middle" fill="#23232b" font-weight="800">공통점</text><text x="320" y="190" font-size="15.5" text-anchor="middle" fill="#23232b">물이 있어야</text><text x="320" y="220" font-size="15.5" text-anchor="middle" fill="#23232b">수성화산</text><text x="320" y="250" font-size="15.5" text-anchor="middle" fill="#23232b">지하수·바닷물</text></svg></div><p class="vfoot"><b>바닷물의 높이가 폭발을 도왔다</b> </p><p class="kid">🧒 같은 수성화산인데 물이 온 길이 달라요. 해수면이 낮았을 땐 지하수, 높아진 뒤엔 바닷가 물!</p><div class="srcs">📎 근거: <a class="btn" href="https://www.jeju.go.kr/geopark/intro/suweolbong/acavalue.htm" target="_blank" rel="noopener noreferrer">[3] 지질공원·수월봉 ↗</a><a class="btn" href="https://doi.org/10.1016/S0377-0273(02)00302-5" target="_blank" rel="noopener noreferrer">[6] Sohn 2003 송악산 ↗</a></div></section><section class="panel" data-g="venn" id="v8" hidden><div class="svgbox vbox"><svg viewBox="0 0 640 370" role="img" aria-label="📜 옛 방법 와 🔬 새 방법 벤다이어그램"><circle cx="235" cy="205" r="150" fill="#8d6e3f" opacity=".28" stroke="#8d6e3f" stroke-width="2"/><circle cx="405" cy="205" r="150" fill="#3e8e5a" opacity=".28" stroke="#3e8e5a" stroke-width="2"/><text x="170" y="26" font-size="20" font-weight="800" text-anchor="middle" fill="#23232b">📜 옛 방법</text><text x="470" y="26" font-size="20" font-weight="800" text-anchor="middle" fill="#23232b">🔬 새 방법</text><text x="170" y="120" font-size="16.5" text-anchor="middle" fill="#23232b">K-Ar 중심</text><text x="170" y="152" font-size="16.5" text-anchor="middle" fill="#23232b">젊은 화산엔 오차</text><text x="170" y="177" font-size="16.5" text-anchor="middle" fill="#23232b">커요</text><text x="170" y="208" font-size="16.5" text-anchor="middle" fill="#23232b">만장굴</text><text x="170" y="233" font-size="16.5" text-anchor="middle" fill="#23232b">20만~30만 년</text><text x="170" y="265" font-size="16.5" text-anchor="middle" fill="#23232b">문섬·섶섬 약</text><text x="170" y="290" font-size="16.5" text-anchor="middle" fill="#23232b">73만 년</text><text x="470" y="83" font-size="16.5" text-anchor="middle" fill="#23232b">Ar-Ar,</text><text x="470" y="108" font-size="16.5" text-anchor="middle" fill="#23232b">U-Th/He,</text><text x="470" y="133" font-size="16.5" text-anchor="middle" fill="#23232b">OSL, 지르콘</text><text x="470" y="157" font-size="16.5" text-anchor="middle" fill="#23232b">U-Pb</text><text x="470" y="189" font-size="16.5" text-anchor="middle" fill="#23232b">오차가 줄어듦</text><text x="470" y="221" font-size="16.5" text-anchor="middle" fill="#23232b">만장굴 8천~1만</text><text x="470" y="246" font-size="16.5" text-anchor="middle" fill="#23232b">년</text><text x="470" y="277" font-size="16.5" text-anchor="middle" fill="#23232b">문섬</text><text x="470" y="302" font-size="16.5" text-anchor="middle" fill="#23232b">82.4만·섶섬</text><text x="470" y="327" font-size="16.5" text-anchor="middle" fill="#23232b">79.6만 년</text><text x="320" y="160" font-size="15.5" text-anchor="middle" fill="#23232b" font-weight="800">공통점</text><text x="320" y="190" font-size="15.5" text-anchor="middle" fill="#23232b">돌·모래 속</text><text x="320" y="220" font-size="15.5" text-anchor="middle" fill="#23232b">시계 읽기</text><text x="320" y="250" font-size="15.5" text-anchor="middle" fill="#23232b">범위로 말해요</text></svg></div><p class="vfoot"><b>연대를 재는 시계가 바뀌었어요</b> </p><p class="kid">🧒 시계가 좋아지면 시각이 바뀌어요. 과학은 "더 정확해지는 중"!</p><div class="srcs">📎 근거: <a class="btn" href="https://v.daum.net/v/kJC37NaGlL" target="_blank" rel="noopener noreferrer">[13] 거문오름계 2021 ↗</a><a class="btn" href="https://www.segye.com/newsView/20260706506293" target="_blank" rel="noopener noreferrer">[18] 범섬·문섬·섶섬 ↗</a><a class="btn" href="https://link.springer.com/article/10.1186/s40543-024-00427-3" target="_blank" rel="noopener noreferrer">[8] Jeong 2024 지르콘 ↗</a><a class="btn" href="https://doi.org/10.1016/j.quageo.2006.05.002" target="_blank" rel="noopener noreferrer">[5] Cheong 2007 OSL ↗</a></div></section><section class="panel" data-g="venn" id="v9" hidden><div class="svgbox vbox"><svg viewBox="0 0 640 370" role="img" aria-label="🐚 서귀포층 와 🔥 용암층 벤다이어그램"><circle cx="235" cy="205" r="150" fill="#c9a46b" opacity=".28" stroke="#c9a46b" stroke-width="2"/><circle cx="405" cy="205" r="150" fill="#44444d" opacity=".28" stroke="#44444d" stroke-width="2"/><text x="170" y="26" font-size="20" font-weight="800" text-anchor="middle" fill="#23232b">🐚 서귀포층</text><text x="470" y="26" font-size="20" font-weight="800" text-anchor="middle" fill="#23232b">🔥 용암층</text><text x="170" y="142" font-size="16.5" text-anchor="middle" fill="#23232b">약 100m 두께</text><text x="170" y="173" font-size="16.5" text-anchor="middle" fill="#23232b">바다 퇴적+화산재</text><text x="170" y="205" font-size="16.5" text-anchor="middle" fill="#23232b">조개 화석</text><text x="170" y="237" font-size="16.5" text-anchor="middle" fill="#23232b">180만~55만 년</text><text x="170" y="268" font-size="16.5" text-anchor="middle" fill="#23232b">약해서 잘 깎여요</text><text x="470" y="173" font-size="16.5" text-anchor="middle" fill="#23232b">서귀포층 위를 덮음</text><text x="470" y="205" font-size="16.5" text-anchor="middle" fill="#23232b">단단한 현무암</text><text x="470" y="237" font-size="16.5" text-anchor="middle" fill="#23232b">여러 번 흐른 용암</text><text x="320" y="144" font-size="15.5" text-anchor="middle" fill="#23232b" font-weight="800">공통점</text><text x="320" y="175" font-size="15.5" text-anchor="middle" fill="#23232b">제주 지하의</text><text x="320" y="205" font-size="15.5" text-anchor="middle" fill="#23232b">위·아래 구조</text><text x="320" y="235" font-size="15.5" text-anchor="middle" fill="#23232b">천지연이</text><text x="320" y="266" font-size="15.5" text-anchor="middle" fill="#23232b">이 차이로 생김</text></svg></div><p class="vfoot"><b>제주 땅속의 아래층과 위층</b> </p><p class="kid">🧒 위는 단단하고 아래는 약해요. 폭포가 생기는 이유를 말해 볼 수 있나요?</p><div class="srcs">📎 근거: <a class="btn" href="https://www.jeju.go.kr/geopark/intro/fossil/intro.htm" target="_blank" rel="noopener noreferrer">[2] 지질공원·서귀포층 ↗</a><a class="btn" href="https://m.go.seoul.co.kr/news/2010/10/04/20101004800002" target="_blank" rel="noopener noreferrer">[20] 지질공원 9곳 2010 ↗</a><a class="btn" href="https://www.jeju.go.kr/geopark/park/jejuintro/volcanic.htm" target="_blank" rel="noopener noreferrer">[1] 지질공원·형성과정 ↗</a></div></section><section class="panel" data-g="venn" id="v10" hidden><div class="card" style="margin:0"><b>🔍 화산이 어떤 풍경을 만들까?</b><div class="flow" style="margin-top:10px"><div class="fl">🌋 마그마가 올라온다</div><span class="arrow">▶</span><div class="fl q">❓ 물을 만났나?</div><span class="arrow">▶</span><div style="display:grid;gap:8px"><div class="flow"><span style="font-size:13px;font-weight:700;color:#1d6a8a">예</span><div class="fl a">💥 폭발! 화산재가 쌓임<br>→ 용머리해안 · 수월봉 · 송악산</div></div><div class="flow"><span style="font-size:13px;font-weight:700;color:#9a3410">아니오·묽음</span><div class="fl b">🔥 용암이 흐름<br>→ 만장굴 · 김녕 · 한라산</div></div><div class="flow"><span style="font-size:13px;font-weight:700;color:#5b3fa0">아니오·끈적</span><div class="fl c">🧴 용암이 쌓여 솟음<br>→ 산방산</div></div></div></div></div><p class="kid">🧒 현장에서 만난 돌을 보고 이 순서도를 따라가 보세요!</p><div class="srcs">📎 근거: <a class="btn" href="https://www.jeju.go.kr/geopark/park/jejuintro/volcanic.htm" target="_blank" rel="noopener noreferrer">[1] 지질공원·형성과정 ↗</a><a class="btn" href="https://www.jeju.go.kr/geopark/intro/suweolbong/acavalue.htm" target="_blank" rel="noopener noreferrer">[3] 지질공원·수월봉 ↗</a><a class="btn" href="https://www.khan.co.kr/article/201506182152585/amp" target="_blank" rel="noopener noreferrer">[21] 경향 2015 산방산 ↗</a></div></section></section><section class="panel" data-g="main" id="compare" hidden><h2 id="compare"><span class="no">7</span> 한눈에 비교표 (방문 순서)</h2>
+<div class="tw"><table style="min-width:900px">
+<tr><th>순서</th><th>탐사지</th><th>이야기 단계</th><th>옛 설명</th><th>최신 연구</th><th>꼭 볼 것</th></tr>
+<tr class="dsep"><td colspan="6">📅 1일차 · 10월 10일(안)</td></tr>
+<tr><td>①</td><td><b>만장굴</b></td><td>3</td><td>20만~30만 년(K-Ar)</td><td>8천~1만 년(동굴계) <a class="ev" href="https://v.daum.net/v/kJC37NaGlL" target="_blank" rel="noopener noreferrer">[13]</a></td><td>용암 수위선, 7.6m 석주</td></tr>
+<tr><td>②</td><td><b>김녕해변</b></td><td>3+5</td><td>20만~30만 년으로 설명</td><td>같은 계라면 8천~1만 년 <span class="hyp">가설</span></td><td>검은 바위/흰 모래 경계</td></tr>
+<tr><td>③</td><td><b>서귀포 패류화석층</b></td><td>1</td><td>제3기 말, 약 100만 년 <a class="ev" href="https://www.seogwipo.co.kr/news/articleView.html?idxno=217242" target="_blank" rel="noopener noreferrer">[16]</a></td><td>제4기 초 180만~55만 년, 재정의 제안 <a class="ev" href="https://www.jeju.go.kr/geopark/intro/fossil/intro.htm" target="_blank" rel="noopener noreferrer">[2]</a><a class="ev" href="https://doi.org/10.1007/bf02910280" target="_blank" rel="noopener noreferrer">[7]</a></td><td>화석 있는/없는 층, 위의 현무암</td></tr>
+<tr class="dsep"><td colspan="6">📅 2일차 · 10월 11일(일)</td></tr>
+<tr><td>④</td><td><b>안덕계곡</b></td><td>3+5</td><td>용암류 K-Ar 3만~90만 년 <a class="ev" href="https://www.jeju.go.kr/geopark/park/jejuintro/volcanic.htm" target="_blank" rel="noopener noreferrer">[1]</a></td><td>단독 값 없음(측정법 정밀화 중)</td><td>용암층 겹침, 아래 약한 층?</td></tr>
+<tr><td>⑤</td><td><b>단산</b></td><td>4</td><td>수십만 년, 바닷속 화산 <a class="ev" href="https://www.seogwipo.co.kr/news/articleView.html?idxno=219910" target="_blank" rel="noopener noreferrer">[14]</a></td><td>정밀 연대 미확인</td><td>분석구 오름과 비교</td></tr>
+<tr><td>⑥</td><td><b>수월봉 엉알</b></td><td>2</td><td>약 1.8만 년 <a class="ev" href="https://doi.org/10.1016/j.quageo.2006.05.002" target="_blank" rel="noopener noreferrer">[5]</a></td><td>약 1.7만 년 <a class="ev" href="https://www.twig24.com/news/scholaship/2026/03/18/20260318500132" target="_blank" rel="noopener noreferrer">[10]</a></td><td>3단계 분출층, 거대연흔</td></tr>
+<tr><td>⑦</td><td><b>노을해안로 돌고래</b></td><td>5</td><td>—</td><td>보호구역 지정 추진 <a class="ev" href="https://m.seoul.co.kr/news/2024/10/28/20241028500018" target="_blank" rel="noopener noreferrer">[23]</a></td><td>육지에서 조용히 관찰</td></tr>
+<tr><td>⑧</td><td><b>용머리해안</b></td><td>2+5</td><td>약 120만 년, 산방산보다 먼저 <a class="ev" href="https://www.khan.co.kr/article/201804192035005" target="_blank" rel="noopener noreferrer">[15]</a></td><td>산방산보다 젊다는 해석, 미확정 <a class="ev" href="https://www.seogwipo.co.kr/news/articleView.html?idxno=219910" target="_blank" rel="noopener noreferrer">[14]</a></td><td>3개 화구, 지층 기울기</td></tr>
+<tr><td>⑨</td><td><b>산방산</b></td><td>4</td><td>약 80만 년 <a class="ev" href="https://www.khan.co.kr/article/201506182152585/amp" target="_blank" rel="noopener noreferrer">[21]</a></td><td>78.5만 년 <a class="ev" href="https://link.springer.com/article/10.1186/s40543-024-00427-3" target="_blank" rel="noopener noreferrer">[8]</a><a class="ev" href="https://www.twig24.com/news/scholaship/2026/03/18/20260318500132" target="_blank" rel="noopener noreferrer">[10]</a></td><td>용암돔, 이웃 섬과 같은 무렵</td></tr>
+<tr><td>⑩</td><td><b>송악산</b></td><td>2</td><td>약 7천 년(OSL) <a class="ev" href="https://doi.org/10.1016/j.quageo.2006.05.002" target="_blank" rel="noopener noreferrer">[5]</a></td><td>약 3,700년 <a class="ev" href="https://www.twig24.com/news/scholaship/2026/03/18/20260318500132" target="_blank" rel="noopener noreferrer">[10]</a></td><td>다단계 분출, 하모리층</td></tr>
+</table></div>
+<!-- 7 misconceptions -->
+<h2><span class="no">8</span> 흔한 오해 바로잡기 (O/X 퀴즈로 써도 좋아요)</h2>
+<div class="ox">
+  <div class="oxc"><span class="x">✕</span> 현무암 구멍은 벌레가 파 놓았다<br><span class="o">○</span> 용암 속 <b>가스 거품</b>이 빠진 자리</div>
+  <div class="oxc"><span class="x">✕</span> 제주 화산은 한라산 하나뿐이다<br><span class="o">○</span> 한라산 둘레에 <b>오름 360여 개</b>도 각자 화산</div>
+  <div class="oxc"><span class="x">✕</span> 화산은 항상 용암만 흘린다<br><span class="o">○</span> 물을 만나면 <b>화산재 폭발</b>도 해요</div>
+  <div class="oxc"><span class="x">✕</span> 줄무늬 절벽은 강에서 쌓인 모래다<br><span class="o">○</span> <b>화산재</b>가 쌓여 굳은 돌이에요</div>
+  <div class="oxc"><span class="x">✕</span> 용암동굴은 사람이 판 땅굴이다<br><span class="o">○</span> 용암이 <b>흘러 빠져나가며</b> 생긴 빈 길</div>
+  <div class="oxc"><span class="x">✕</span> 김녕의 하얀 모래는 화산재다<br><span class="o">○</span> <b>조개·산호 껍데기</b>가 부서진 가루</div>
+  <div class="oxc"><span class="x">✕</span> 제주의 용암은 모두 꿀처럼 묽다<br><span class="o">○</span> 산방산은 <b>치약처럼 끈적한</b> 용암</div>
+  <div class="oxc"><span class="x">✕</span> 폭발한 화산은 옛날에 한 번뿐이다<br><span class="o">○</span> 용머리(옛)·수월봉·송악산(최근)처럼 <b>여러 번</b></div>
+  <div class="oxc"><span class="x">✕</span> 화석은 생물의 몸이 그대로 남은 것이다<br><span class="o">○</span> 돌로 바뀌었거나 <b>자국</b>이 남은 것</div>
+  <div class="oxc"><span class="x">✕</span> 돌고래는 물고기다<br><span class="o">○</span> <b>포유류</b>예요. 허파로 숨 쉬어서 물 위로 올라와요</div>
+  <div class="oxc"><span class="x">✕</span> 화산의 나이는 한 번 정해지면 안 바뀐다<br><span class="o">○</span> 측정법이 좋아지면 <b>고쳐져요</b> (만장굴 20만→1만 년 안쪽)</div>
+  <div class="oxc"><span class="x">✕</span> 용머리가 제주에서 가장 오래됐다고 확정됐다<br><span class="o">○</span> 산방산과의 <b>선후 관계가 논쟁 중</b>이에요</div>
+  <div class="oxc"><span class="x">✕</span> 물은 약해서 바위를 못 깎는다<br><span class="o">○</span> <b>오랜 시간</b> 쌓이면 계곡도 만든다</div>
+</div>
+
+</section><section class="panel" data-g="main" id="safety" hidden><!-- 8 safety -->
+<h2><span class="no">9</span> 안전 · 물때 한눈에</h2>
+<div class="tide">
+  <div class="td"><b>🌊 10일(안) · 1일차</b><br>간조 15:36 ▼ → 김녕해변·바다 관찰은 간조 전후에 / 서귀포층은 해안 접근 여부 현장 확인<div class="bar"><i style="left:56%;width:12%;background:#1d7fa8"></i></div><small>서귀포 기준 · 국립해양조사원 자료 · 막대는 대략의 간조 시간대</small></div>
+  <div class="td"><b>🌊 11일(일) · 2일차</b><br>만조 10:03 ▲ → 오전은 숲·오름(안덕계곡·단산) / 간조 16:13 ▼ → 오후는 바닷가(용머리·송악산)<div class="bar"><i style="left:38%;width:10%;background:#7fc0dc"></i><i style="left:62%;width:12%;background:#1d7fa8"></i></div><small>연한 막대: 만조(물 참) · 진한 막대: 간조(물 빠짐)</small></div>
+</div>
+<div class="card" style="margin-top:12px">
+  <b>🧢 공통 안전 약속</b>
+  <ul style="margin:6px 0 0;padding-left:20px">
+    <li><b>돌·화석·동굴 구조물·모래·생물은 채취·접촉 금지</b> (보호 구역, 한번 부서지면 되돌릴 수 없어요)</li>
+    <li><b>루페로 해를 절대 보지 않기</b>, 돌은 던지지 않기</li>
+    <li>절벽 아래·파도 가까이에서는 <b>선생님 뒤, 안쪽 길</b>로 걷기, 낙석 소리가 나면 즉시 멈추고 선생님께 알리기</li>
+    <li>미끄러운 곳(계곡·젖은 바위·동굴·용암 해안)은 <b>손은 비우고</b> 천천히, 휴대전화는 부모님께</li>
+    <li>돌고래는 <b>육지에서 멀리서만</b>, 해안도로에서는 차량 주의</li>
+    <li>비·강풍·파도 주의보 시 <b>Plan B</b> 적용, 당일 운영·통제 확인, 응급 <b>119</b></li>
+  </ul>
+</div>
+
+</section><section class="panel" data-g="main" id="refs" hidden><h2 id="refs"><span class="no">10</span> 참고문헌 (클릭하면 열려요)</h2>
+<p class="lead">접근일 2026-10-10. 논문·공공기관 자료를 우선했고, 언론·백과는 보조 근거예요. 보도의 수치는 요약본이므로 원 자료로 재확인을 권해요.</p>
+<ol class="refs" style="list-style:none;padding-left:0"><li id="r1"><b>[1]</b> <a class="ev" href="https://www.jeju.go.kr/geopark/park/jejuintro/volcanic.htm" target="_blank" rel="noopener noreferrer">제주도세계지질공원, 「제주 화산섬의 형성과정」</a><span class="tg">공공</span></li><li id="r2"><b>[2]</b> <a class="ev" href="https://www.jeju.go.kr/geopark/intro/fossil/intro.htm" target="_blank" rel="noopener noreferrer">제주도세계지질공원, 「서귀포층 패류화석산지」</a><span class="tg">공공</span></li><li id="r3"><b>[3]</b> <a class="ev" href="https://www.jeju.go.kr/geopark/intro/suweolbong/acavalue.htm" target="_blank" rel="noopener noreferrer">제주도세계지질공원, 「수월봉 학술적 가치」</a><span class="tg">공공</span></li><li id="r4"><b>[4]</b> <a class="ev" href="https://www.jeju.go.kr/geopark/intro/yongmeori/intro.htm" target="_blank" rel="noopener noreferrer">제주도세계지질공원, 「용머리해안 소개」</a><span class="tg">공공</span></li><li id="r5"><b>[5]</b> <a class="ev" href="https://doi.org/10.1016/j.quageo.2006.05.002" target="_blank" rel="noopener noreferrer">Cheong et al. (2007) Optical dating of hydromagmatic volcanoes on the southwestern coast of Jeju Island, <i>Quaternary Geochronology</i> 2</a><span class="tg">논문</span></li><li id="r6"><b>[6]</b> <a class="ev" href="https://doi.org/10.1016/S0377-0273(02)00302-5" target="_blank" rel="noopener noreferrer">Sohn et al. (2003) Songaksan tuff ring, <i>J. Volcanol. Geotherm. Res.</i> 119</a><span class="tg">논문</span></li><li id="r7"><b>[7]</b> <a class="ev" href="https://doi.org/10.1007/bf02910280" target="_blank" rel="noopener noreferrer">Sohn &amp; Park (2004) Early-stage volcanism… Sagye borehole, <i>Geosciences Journal</i> 8</a><span class="tg">논문</span></li><li id="r8"><b>[8]</b> <a class="ev" href="https://link.springer.com/article/10.1186/s40543-024-00427-3" target="_blank" rel="noopener noreferrer">Jeong et al. (2024) Laser ablation MC-ICPMS U-Th and U-Th-Pb dating of Quaternary zircons from Jeju, <i>J. Anal. Sci. Technol.</i> 15</a><span class="tg">논문</span></li><li id="r9"><b>[9]</b> <a class="ev" href="https://newsseoul.co.kr/news/view/1065607850352699" target="_blank" rel="noopener noreferrer">뉴스서울, 오름·습지 보전관리 방안(2024-12-16)</a><span class="tg">언론</span></li><li id="r10"><b>[10]</b> <a class="ev" href="https://www.twig24.com/news/scholaship/2026/03/18/20260318500132" target="_blank" rel="noopener noreferrer">트윅24, 「성산일출봉은 6000년, 송악산은 3700년… 90개 오름의 나이」(2026-03-18)</a><span class="tg">언론</span></li><li id="r11"><b>[11]</b> <a class="ev" href="https://jnuri.net/news/article.html?no=67479" target="_blank" rel="noopener noreferrer">제이누리, 90개 오름 연대 보도(2026-03-18)</a><span class="tg">언론</span></li><li id="r12"><b>[12]</b> <a class="ev" href="https://www.sciencedaily.com/releases/2014/07/140722102251.htm" target="_blank" rel="noopener noreferrer">ScienceDaily, Jeju Island, Korea is a live volcano(2014-07-22, KIGAM 연구)</a><span class="tg">언론</span></li><li id="r13"><b>[13]</b> <a class="ev" href="https://v.daum.net/v/kJC37NaGlL" target="_blank" rel="noopener noreferrer">다음뉴스, 「거문오름~만장굴 나이 수정」(2021-07-23, 세계유산본부 자료)</a><span class="tg">언론</span></li><li id="r14"><b>[14]</b> <a class="ev" href="https://www.seogwipo.co.kr/news/articleView.html?idxno=219910" target="_blank" rel="noopener noreferrer">서귀포신문, 강순석 기고, 용머리·단산(2023-10-13)</a><span class="tg">기고</span></li><li id="r15"><b>[15]</b> <a class="ev" href="https://www.khan.co.kr/article/201804192035005" target="_blank" rel="noopener noreferrer">경향신문, 문경수의 탐라도 탐험 (9)(2018-04-19)</a><span class="tg">언론</span></li><li id="r16"><b>[16]</b> <a class="ev" href="https://www.seogwipo.co.kr/news/articleView.html?idxno=217242" target="_blank" rel="noopener noreferrer">서귀포신문, 「서귀포층, 100만 년 전의 비밀」(날짜 미확인)</a><span class="tg">기고</span></li><li id="r17"><b>[17]</b> <a class="ev" href="https://m.seoul.co.kr/news/2026/07/20/20260720500069" target="_blank" rel="noopener noreferrer">서울신문, 더데오름 지하 용암돔(2026-07-20)</a><span class="tg">언론</span></li><li id="r18"><b>[18]</b> <a class="ev" href="https://www.segye.com/newsView/20260706506293" target="_blank" rel="noopener noreferrer">세계일보, 범섬·문섬·섶섬 선상 화산 가능성(2026-07-06)</a><span class="tg">언론</span></li><li id="r19"><b>[19]</b> <a class="ev" href="https://m.seoul.co.kr/news/2024/10/15/20241015500041" target="_blank" rel="noopener noreferrer">서울신문, 성산일출봉 복합화산체(2024-10-15)</a><span class="tg">언론</span></li><li id="r20"><b>[20]</b> <a class="ev" href="https://m.go.seoul.co.kr/news/2010/10/04/20101004800002" target="_blank" rel="noopener noreferrer">서울신문, 제주 세계지질공원 9개 명소(2010-10-04)</a><span class="tg">언론</span></li><li id="r21"><b>[21]</b> <a class="ev" href="https://www.khan.co.kr/article/201506182152585/amp" target="_blank" rel="noopener noreferrer">경향신문, 지오 상품화(산방산 설명)(2015-06-18)</a><span class="tg">언론</span></li><li id="r22"><b>[22]</b> <a class="ev" href="https://en.wikipedia.org/wiki/Jeju_Volcanic_Island_and_Lava_Tubes" target="_blank" rel="noopener noreferrer">Wikipedia, Jeju Volcanic Island and Lava Tubes</a><span class="tg">백과</span></li><li id="r23"><b>[23]</b> <a class="ev" href="https://m.seoul.co.kr/news/2024/10/28/20241028500018" target="_blank" rel="noopener noreferrer">서울신문, 남방큰돌고래 해양생물보호구역(2024-10-28)</a><span class="tg">언론(제목만 확인)</span></li></ol>
+<div class="note"><b>한계</b> · 안덕계곡·단산·용머리의 최신 절대연대, 김녕 해안 용암의 직접 측정값, 돌고래 서식과 지질의 연결은 이번 조사에서 근거를 찾지 못해 <span class="hyp">가설</span>·"미확인"으로 표시했어요. 보도 [13]은 출처가 세계유산본부 자료로 표기돼 있으나 측정 기관이 명시되지 않았어요.</div>
+</section></div><div class="wrap"><footer><p><b>정리</b> · 제주 지질 한 줄 요약: <u>얕은 바다의 수성화산·퇴적 → 물가 폭발 → 용암 성장 → 오름·용암돔 → 물과 파도의 다듬질</u>. 그리고 <b>연대는 측정법이 좋아질수록 바뀌는 "진행 중인 연구"</b>예요.</p></footer></div><script>
+(function(){
+var rows=[["서귀포층(수성화산+퇴적)",[550000,1800000],1],["군산오름",917000,0],["월라봉",863000,0],["산방산",785000,1],["당산봉",446000,0],["별도봉",435000,0],["삼매봉",433000,0],["도두봉",410000,0],["차귀도",[224000,350000],0],["산굼부리",73000,0],["물장오리",58000,0],["사라오름",43000,0],["어승생",40000,0],["물영아리",31000,0],["물찻오름",27000,0],["바리메",17000,0],["수월봉",17000,1],["백록담 분화구",16000,0],["큰노꼬메",10000,0],["만장굴(거문오름계)",[8000,10000],1],["다랑쉬오름",9000,0],["성산일출봉",[5000,6700],0],["도너리오름",6000,0],["송악산",3700,1],["돌오름",2000,0]];
+var svg=document.getElementById("agechart");if(!svg)return;
+var L=190,W=640,T=44,H=24,lo=3,hi=6.4;
+function X(v){return L+(Math.log(v)/Math.LN10-lo)/(hi-lo)*W;}
+function lab(v){return v>=10000?(v/10000)+"만":(v/1000)+"천";}
+var o="";
+[[1000,"1천 년"],[10000,"1만"],[100000,"10만"],[1000000,"100만"]].forEach(function(g){var x=X(g[0]);o+='<line x1="'+x+'" y1="30" x2="'+x+'" y2="'+(T+rows.length*H)+'" stroke="#e6ddd0"/><text x="'+x+'" y="22" font-size="13" text-anchor="middle" fill="#5b5b68">'+g[1]+'</text>';});
+rows.forEach(function(r,i){var y=T+i*H+12,c=r[2]?"#e8551f":"#7a7a86",a=r[1];o+='<text x="'+(L-8)+'" y="'+(y+4)+'" font-size="13.5" text-anchor="end" fill="'+(r[2]?"#9a3410":"#23232b")+'" font-weight="'+(r[2]?700:400)+'">'+r[0]+'</text>';
+if(a.length){o+='<rect x="'+X(a[0])+'" y="'+(y-6)+'" width="'+Math.max(6,X(a[1])-X(a[0]))+'" height="12" rx="6" fill="'+c+'" opacity=".85"/>';o+='<text x="'+(X(a[1])+8)+'" y="'+(y+4)+'" font-size="12" fill="#5b5b68">'+lab(a[0])+"~"+lab(a[1])+"년</text>";}
+else{o+='<circle cx="'+X(a)+'" cy="'+y+'" r="6" fill="'+c+'"/><text x="'+(X(a)+10)+'" y="'+(y+4)+'" font-size="12" fill="#5b5b68">'+lab(a)+"년</text>";}});
+o+='<circle cx="640" cy="'+(T+rows.length*H+28)+'" r="6" fill="#e8551f"/><text x="652" y="'+(T+rows.length*H+32)+'" font-size="13">이번 탐사지</text><circle cx="760" cy="'+(T+rows.length*H+28)+'" r="6" fill="#7a7a86"/><text x="772" y="'+(T+rows.length*H+32)+'" font-size="13">그 밖</text>';
+svg.setAttribute("viewBox","0 0 900 "+(T+rows.length*H+50));svg.innerHTML=o;})();
+</script><script>
+(function(){
+function act(g,id,sc){
+  document.querySelectorAll('section.panel[data-g="'+g+'"]').forEach(function(p){p.hidden=(p.id!==id);});
+  document.querySelectorAll('button[data-g="'+g+'"]').forEach(function(b){b.classList.toggle('on',b.dataset.t===id);});
+  if(g==='main'){try{history.replaceState(null,'','#'+id);}catch(e){} window.scrollTo({top:0});}
+  else if(sc){var bar=document.getElementById('bar-'+g);if(bar){var y=bar.getBoundingClientRect().top+window.scrollY-64;window.scrollTo({top:y});}}
+}
+document.addEventListener('click',function(e){var b=e.target.closest('button[data-g]');if(b)act(b.dataset.g,b.dataset.t,true);});
+var h=(location.hash||'').slice(1);if(h&&document.querySelector('section.panel[data-g="main"]#'+h))act('main',h,false);
+})();
+</script>
+</body></html>
